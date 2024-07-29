@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
 <h1>{{ post.title }}</h1>
 <p>{{ post.created_at }}</p>
 <p>{{ post.content }}</p>
@@ -11,3 +15,6 @@
     {{ form.as_p }}
     <button type="submit">Add Comment</button>
 </form>
+
+{% endblock %}
+
