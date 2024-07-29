@@ -1,0 +1,13 @@
+<h1>{{ post.title }}</h1>
+<p>{{ post.created_at }}</p>
+<p>{{ post.content }}</p>
+<h2>Comments</h2>
+{% for comment in post.comments.all %}
+    <p>{{ comment.author }}: {{ comment.content }}</p>
+{% endfor %}
+<h2>Add a Comment</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Comment</button>
+</form>
