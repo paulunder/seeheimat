@@ -1,13 +1,16 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-<h1>Blog</h1>
-{% for post in posts %}
-    <h2><a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a></h2>
-    <p>{{ post.created_at }}</p>
-    <p>{{ post.content|truncatewords:20 }}</p>
-{% endfor %}
-
+<h2>Blog</h2>
+<div class="list-group">
+    {% for post in posts %}
+    <a href="{% url 'blog_detail' post.id %}" class="list-group-item list-group-item-action">
+        <h5 class="mb-1">{{ post.title }}</h5>
+        <p class="mb-1">{{ post.excerpt }}</p>
+        <small>Posted on {{ post.published_date }}</small>
+    </a>
+    {% endfor %}
+</div>
 {% endblock %}

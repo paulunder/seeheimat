@@ -1,8 +1,20 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Services{% endblock %}
 
 {% block content %}
-<h1>Services</h1>
-<p>My Services</p>
+<h2>Our Services</h2>
+<div class="row">
+    {% for service in services %}
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ service.name }}</h5>
+                <p class="card-text">{{ service.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

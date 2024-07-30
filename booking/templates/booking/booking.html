@@ -1,13 +1,31 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block title %}Booking{% endblock %}
 
 {% block content %}
-<h1>Booking</h1>
+<h2>Book a Service</h2>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Book Now</button>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="service">Service</label>
+        <select class="form-control" id="service" name="service" required>
+            <option>Service 1</option>
+            <option>Service 2</option>
+            <option>Service 3</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Book Now</button>
 </form>
-
 {% endblock %}
