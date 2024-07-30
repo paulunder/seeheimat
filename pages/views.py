@@ -12,4 +12,4 @@ def contact(request):
 
 def services_view(request):
     services = Service.objects.all()
-    return render(request, 'services.html', {'services': services})
+    return render(request, 'pages/services.html', {'services': services})
