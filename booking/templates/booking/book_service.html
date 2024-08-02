@@ -15,20 +15,15 @@
                 <div class="card-body">
                     <form method="post">
                         {% csrf_token %}
+                        {{ form.service|as_crispy_field }}
+                        {{ form.date|as_crispy_field }}
                         <div class="form-group mb-3">
-                            {{ form.service.label_tag }}<br>
-                            {{ form.service|as_crispy_field }}
-                            <small class="form-text text-muted">Choose the service you want to book.</small>
-                        </div>
-                        <div class="form-group mb-3">
-                            {{ form.time.label_tag }}<br>
-                            <div class="input-group" id="datetimepicker1" data-td-target-input="nearest" data-td-target-toggle="nearest">
-                                {{ form.time|as_crispy_field }}
-                                <span class="input-group-text" data-td-target="#datetimepicker1" data-td-toggle="datetimepicker">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
-                            </div>
-                            <small class="form-text text-muted">Select the preferred time for your service.</small>
+                            <label for="time_slot">Select Time Slot</label><br>
+                            {% for value, display in form.fields.time_slot.choices %}
+                                <label class="btn btn-outline-primary {% if not display %}disabled{% endif %}">
+                                    <input type="radio" name="time_slot" value="{{ value }}" {% if not display %}disabled{% endif %}> {{ display }}
+                                </label>
+                            {% endfor %}
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Book Now</button>
                     </form>
@@ -37,26 +32,4 @@
         </div>
     </div>
 </div>
-{% endblock %}
-
-{% block scripts %}
-<script type="text/javascript">
-    $(function () {
-        const picker = new tempusDominus.TempusDominus(document.getElementById('datetimepicker1'), {
-            display: {
-                components: {
-                    calendar: true,
-                    date: true,
-                    month: true,
-                    year: true,
-                    decades: true,
-                    clock: true,
-                    hours: true,
-                    minutes: true,
-                    seconds: false
-                }
-            }
-        });
-    });
-</script>
 {% endblock %}
