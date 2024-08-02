@@ -28,8 +28,8 @@ class BookingForm(forms.ModelForm):
                 self.fields['time_slot'].choices = self.get_time_slot_choices(service, date)
 
     def get_time_slot_choices(self, service, date):
-        start_time = datetime.time(14, 0)  # 2:00 PM
-        end_time = datetime.time(21, 30)   # 9:30 PM
+        start_time = datetime.time(14, 0) 
+        end_time = datetime.time(21, 30)   
         slots = generate_time_slots(start_time, end_time, service.duration)
         booked_slots = Booking.objects.filter(service=service, date=date).values_list('time_slot', flat=True)
         choices = [(slot, slot.strftime('%H:%M')) for slot in slots if slot not in booked_slots]
