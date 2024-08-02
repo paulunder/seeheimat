@@ -1,9 +1,9 @@
+import datetime
 from django import forms
-from .models import Booking
-from pages.models import Service
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
-import datetime
+from pages.models import Service
+from .models import Booking
 
 class BookingForm(forms.ModelForm):
     class Meta:
