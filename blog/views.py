@@ -8,7 +8,7 @@ from .forms import CommentForm
 # Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
-    template_name = "blog/index.html"
+    template_name = "blog/blog_list.html"
     paginate_by = 6
     
 
@@ -23,7 +23,7 @@ def post_detail(request, slug):
 
     **Template:**
 
-    :template:`blog/post_detail.html`
+    :template:`blog/blog_list.html`
     """
 
     queryset = Post.objects.filter(status=1)
