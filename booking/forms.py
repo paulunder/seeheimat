@@ -15,5 +15,5 @@ class BookingForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.template = 'bootstrap5'  # Specify the template for Bootstrap 5
+        self.helper.template = 'bootstrap5'
         self.helper.add_input(Submit('submit', 'Book Now', css_class='btn-primary btn-block'))
