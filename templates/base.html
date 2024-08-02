@@ -3,6 +3,8 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +40,7 @@
                         <a class="nav-link" href="{% url 'book_service' %}">Booking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog_list' %}">Blog</a>
+                        <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
