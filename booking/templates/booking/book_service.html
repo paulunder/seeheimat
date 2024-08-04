@@ -14,7 +14,7 @@
         <div class="time-slots">
             {% for slot in available_slots %}
                 <button type="button" class="btn btn-slot {% if slot in booked_slots %}btn-secondary{% else %}btn-primary{% endif %}"
-                        {% if slot in booked_slots %}disabled{% endif %}"
+                        {% if slot in booked_slots %}disabled{% endif %}
                         data-time-slot="{{ slot }}">
                     {{ slot }}
                 </button>
