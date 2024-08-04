@@ -68,4 +68,4 @@ def book_service(request):
 @login_required
 def booking_confirmation(request, booking_id):
     booking = Booking.objects.get(id=booking_id)
-    return render(request, 'booking/booking_confirmation.html', {'booking': booking})
+    return render(request, 'booking/book_confirmation.html', {'booking': booking})
