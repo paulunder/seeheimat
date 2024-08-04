@@ -8,11 +8,10 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ['service', 'date', 'time_slot'] 
         widgets = {
-            'date': forms.SelectDateWidget()
+            'date': forms.DateInput(attrs={'class': 'datepicker'}),
         }
 
     def __init__(self, *args, **kwargs):
-        # Extract the time slots passed from the view
         time_slots = kwargs.pop('time_slots', [])
         super().__init__(*args, **kwargs)
         self.fields['time_slot'].choices = [(slot, slot) for slot in time_slots]
