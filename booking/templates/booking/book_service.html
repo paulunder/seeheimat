@@ -9,7 +9,7 @@
 <form method="post" id="booking-form">
     {% csrf_token %}
     {{ form.as_p }}
-    
+
     <div class="form-group">
         <label for="time_slot">Select a Time Slot</label>
         <div class="time-slots">
@@ -22,7 +22,7 @@
             {% endfor %}
         </div>
     </div>
-    
+
     <input type="hidden" name="time_slot" id="selected-time-slot">
     <button type="submit" class="btn btn-primary">Book</button>
 </form>

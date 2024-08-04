@@ -1,9 +1,9 @@
 import datetime
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from pages.models import Service
 from .models import Booking
 from .forms import BookingForm
-from pages.models import Service
 
 def generate_time_slots(start_time, end_time, interval_minutes=10):
     slots = []
@@ -25,11 +25,11 @@ def book_service(request):
             return redirect('booking_confirmation', booking_id=booking.id)
     else:
         form = BookingForm()
-    
+
     selected_service_id = request.GET.get('service', None)
     available_slots = []
     booked_slots = []
-    
+
     if selected_service_id:
         try:
             selected_service = Service.objects.get(id=selected_service_id)
@@ -40,20 +40,22 @@ def book_service(request):
             start_time = datetime.time(14, 0)
             end_time = datetime.time(21, 30)
             all_slots = generate_time_slots(start_time, end_time)
-            
+            print("Generated time slots:", all_slots)  # Debugging: print generated slots
+
             bookings = Booking.objects.filter(service=selected_service, date=form['date'].value())
             for booking in bookings:
                 booked_start_time = booking.time_slot
                 booked_end_time = (datetime.datetime.combine(datetime.date.today(), booked_start_time) + total_time).time()
-                slot_time = datetime.datetime.combine(datetime.date.today(), start_time)
+                slot_time = datetime.datetime.combine(datetime.date.today(), booked_start_time)
                 while slot_time.time() < booked_end_time:
                     booked_slots.append(slot_time.time())
                     slot_time += datetime.timedelta(minutes=10)
 
             available_slots = [slot for slot in all_slots if slot not in booked_slots]
+            print("Available time slots:", available_slots)  # Debugging: print available slots
         except Service.DoesNotExist:
             pass
-    
+
     return render(request, 'booking/book_service.html', {
         'form': form,
         'available_slots': available_slots,
@@ -63,4 +65,4 @@ def book_service(request):
 @login_required
 def booking_confirmation(request, booking_id):
     booking = Booking.objects.get(id=booking_id)
-    return render(request, 'booking/booking_confirmation.html', {'booking': booking})
+    return render(request, 'booking/book_confirmation.html', {'booking': booking})
