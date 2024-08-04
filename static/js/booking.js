@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     timeSlotButtons.forEach(button => {
         button.addEventListener('click', function() {
+            console.log('Selected time slot:', button.getAttribute('data-time-slot'));
             // Reset all buttons
             timeSlotButtons.forEach(btn => btn.classList.remove('btn-success'));
             timeSlotButtons.forEach(btn => btn.classList.add('btn-primary'));
