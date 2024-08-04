@@ -1,15 +1,17 @@
+import datetime
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from datetime import time, timedelta, datetime
-from .models import Service, Booking
+from .models import Booking
 from .forms import BookingForm
+from pages.models import Service
 
-def generate_time_slots(start_time, end_time, service_duration):
+def generate_time_slots(start_time, end_time, interval_minutes=10):
     slots = []
-    current_time = datetime.combine(datetime.today(), start_time)
-    while current_time.time() < end_time:
+    current_time = datetime.datetime.combine(datetime.date.today(), start_time)
+    end_datetime = datetime.datetime.combine(datetime.date.today(), end_time)
+    while current_time <= end_datetime:
         slots.append(current_time.time())
-        current_time += service_duration
+        current_time += datetime.timedelta(minutes=interval_minutes)
     return slots
 
 @login_required
@@ -32,12 +34,23 @@ def book_service(request):
         try:
             selected_service = Service.objects.get(id=selected_service_id)
             service_duration = selected_service.duration
-            start_time = time(14, 0)
-            end_time = time(21, 30)
-            available_slots = generate_time_slots(start_time, end_time, service_duration)
+            cleaning_time = datetime.timedelta(minutes=10)  # 10 minutes for cleaning
+            total_time = service_duration + cleaning_time
+
+            start_time = datetime.time(14, 0)
+            end_time = datetime.time(21, 30)
+            all_slots = generate_time_slots(start_time, end_time)
             
-            booked_slots = Booking.objects.filter(service=selected_service, date=form['date'].value()).values_list('time_slot', flat=True)
-            available_slots = [slot for slot in available_slots if slot not in booked_slots]
+            bookings = Booking.objects.filter(service=selected_service, date=form['date'].value())
+            for booking in bookings:
+                booked_start_time = booking.time_slot
+                booked_end_time = (datetime.datetime.combine(datetime.date.today(), booked_start_time) + total_time).time()
+                slot_time = datetime.datetime.combine(datetime.date.today(), start_time)
+                while slot_time.time() < booked_end_time:
+                    booked_slots.append(slot_time.time())
+                    slot_time += datetime.timedelta(minutes=10)
+
+            available_slots = [slot for slot in all_slots if slot not in booked_slots]
         except Service.DoesNotExist:
             pass
     

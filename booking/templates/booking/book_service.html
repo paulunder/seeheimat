@@ -1,40 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-
+{% extends "base.html" %}
 
 {% block title %}Book a Service{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h2 class="mb-0">Book a Service</h2>
-                </div>
-                <div class="card-body">
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.service|as_crispy_field }}
-                        {{ form.date|as_crispy_field }}
-                        <div class="form-group mb-3">
-                            <label for="time_slot">Select a Time Slot</label>
-                            <div class="time-slots">
-                                {% for slot in available_slots %}
-                                    <button type="button" class="btn {% if slot in booked_slots %}btn-secondary{% else %}btn-primary{% endif %}"
-                                            {% if slot in booked_slots %}disabled{% endif %}>
-                                        {{ slot|time:"H:i" }}
-                                    </button>
-                                {% endfor %}
-                            </div>
-                        <button type="submit" class="btn btn-primary btn-block">Book Now</button>
-                    </form>
-                </div>
-            </div>
+<h1>Book a Service</h1>
+<form method="post" id="booking-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <div class="form-group">
+        <label for="time_slot">Select a Time Slot</label>
+        <div class="time-slots">
+            {% for slot in available_slots %}
+                <button type="button" class="btn btn-slot {% if slot in booked_slots %}btn-secondary{% else %}btn-primary{% endif %}"
+                        {% if slot in booked_slots %}disabled{% endif %}"
+                        data-time-slot="{{ slot }}">
+                    {{ slot|time:"H:i" }}
+                </button>
+            {% endfor %}
         </div>
     </div>
-</div>
+    
+    <input type="hidden" name="time_slot" id="selected-time-slot">
+    <button type="submit" class="btn btn-primary">Book</button>
+</form>
 {% endblock content %}
 
 {% block extra_js %}
