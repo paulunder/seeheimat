@@ -23,7 +23,7 @@ def post_detail(request, slug):
 
     **Template:**
 
-    :template:`blog/blog_list.html`
+    :template:`blog/blog_detail.html`
     """
 
     queryset = Post.objects.filter(status=1)
@@ -77,7 +77,7 @@ def comment_edit(request, slug, comment_id):
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
 
-    return HttpResponseRedirect(reverse('blog_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
 def comment_delete(request, slug, comment_id):
@@ -94,4 +94,4 @@ def comment_delete(request, slug, comment_id):
     else:
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
-    return HttpResponseRedirect(reverse('blog_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
