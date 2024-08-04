@@ -8,7 +8,7 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ['service', 'date', 'time_slot'] 
         widgets = {
-            'date': forms.DateInput(attrs={'class': 'datepicker'}),
+            'date': forms.DateInput(attrs={'type': 'date'}),
         }
 
     def __init__(self, *args, **kwargs):
