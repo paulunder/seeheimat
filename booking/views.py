@@ -6,19 +6,14 @@ from .forms import BookingForm
 
 def generate_time_slots(start_time, end_time, service_duration):
     slots = []
-    current_time = start_time
-    while datetime.combine(datetime.today(), current_time) + service_duration <= datetime.combine(datetime.today(), end_time):
-        slots.append(current_time)
-        current_time = (datetime.combine(datetime.today(), current_time) + service_duration).time()
+    current_time = datetime.combine(datetime.today(), start_time)
+    while current_time.time() < end_time:
+        slots.append(current_time.time())
+        current_time += service_duration
     return slots
 
 @login_required
 def book_service(request):
-    service_duration = timedelta(minutes=30)  # Duration of the service
-    start_time = time(14, 0)  # Start time for booking
-    end_time = time(21, 30)   # End time for booking
-    all_slots = generate_time_slots(start_time, end_time, service_duration)
-
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -28,13 +23,28 @@ def book_service(request):
             return redirect('booking_confirmation', booking_id=booking.id)
     else:
         form = BookingForm()
-
-    booked_slots = Booking.objects.filter(date=request.POST.get('date')).values_list('time_slot', flat=True)
-    available_slots = [slot for slot in all_slots if slot not in booked_slots]
-
+    
+    selected_service_id = request.GET.get('service', None)
+    available_slots = []
+    booked_slots = []
+    
+    if selected_service_id:
+        try:
+            selected_service = Service.objects.get(id=selected_service_id)
+            service_duration = selected_service.duration
+            start_time = time(14, 0)
+            end_time = time(21, 30)
+            available_slots = generate_time_slots(start_time, end_time, service_duration)
+            
+            booked_slots = Booking.objects.filter(service=selected_service, date=form['date'].value()).values_list('time_slot', flat=True)
+            available_slots = [slot for slot in available_slots if slot not in booked_slots]
+        except Service.DoesNotExist:
+            pass
+    
     return render(request, 'booking/book_service.html', {
         'form': form,
         'available_slots': available_slots,
+        'booked_slots': booked_slots
     })
 
 @login_required
