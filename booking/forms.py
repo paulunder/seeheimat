@@ -6,7 +6,10 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
-        fields = ['service', 'date', 'time_slot']  # Include the time_slot field
+        fields = ['service', 'date', 'time_slot'] 
+        widgets = {
+            'date': forms.SelectDateWidget()
+        }
 
     def __init__(self, *args, **kwargs):
         # Extract the time slots passed from the view
