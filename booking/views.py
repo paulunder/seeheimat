@@ -30,29 +30,28 @@ def book_service(request):
     available_slots = []
     booked_slots = []
 
-    if selected_service_id:
+    if selected_service_id and form.is_valid():
         try:
             selected_service = Service.objects.get(id=selected_service_id)
             service_duration = selected_service.duration
             cleaning_time = datetime.timedelta(minutes=10)  # 10 minutes for cleaning
-            total_time = service_duration + cleaning_time
+            total_time = (datetime.datetime.min + service_duration + cleaning_time).time()
 
             start_time = datetime.time(14, 0)
             end_time = datetime.time(21, 30)
             all_slots = generate_time_slots(start_time, end_time)
-            print("Generated time slots:", all_slots)  # Debugging: print generated slots
 
-            bookings = Booking.objects.filter(service=selected_service, date=form['date'].value())
+            selected_date = form.cleaned_data['date']
+            bookings = Booking.objects.filter(service=selected_service, date=selected_date)
             for booking in bookings:
                 booked_start_time = booking.time_slot
-                booked_end_time = (datetime.datetime.combine(datetime.date.today(), booked_start_time) + total_time).time()
+                booked_end_time = (datetime.datetime.combine(datetime.date.today(), booked_start_time) + service_duration + cleaning_time).time()
                 slot_time = datetime.datetime.combine(datetime.date.today(), booked_start_time)
                 while slot_time.time() < booked_end_time:
                     booked_slots.append(slot_time.time())
                     slot_time += datetime.timedelta(minutes=10)
 
             available_slots = [slot for slot in all_slots if slot not in booked_slots]
-            print("Available time slots:", available_slots)  # Debugging: print available slots
         except Service.DoesNotExist:
             pass
 
@@ -65,4 +64,4 @@ def book_service(request):
 @login_required
 def booking_confirmation(request, booking_id):
     booking = Booking.objects.get(id=booking_id)
-    return render(request, 'booking/book_confirmation.html', {'booking': booking})
+    return render(request, 'booking/booking_confirmation.html', {'booking': booking})
