@@ -1,33 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+
 {% block title %}Book a Service{% endblock %}
 
 {% block content %}
 <h1>Book a Service</h1>
 <form method="post" id="booking-form">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_p }}  <!-- Render the form with time slot options -->
 
-    <div class="form-group">
-        <label for="time_slot">Select a Time Slot</label>
-        <div class="time-slots">
-            {% for slot in available_slots %}
-                <button type="button" class="btn btn-slot {% if slot in booked_slots %}btn-secondary{% else %}btn-primary{% endif %}"
-                        {% if slot in booked_slots %}disabled{% endif %}
-                        data-time-slot="{{ slot }}">
-                    {{ slot }}
-                </button>
-            {% endfor %}
-        </div>
-    </div>
-
-    <input type="hidden" name="time_slot" id="selected-time-slot">
-    <button type="submit" class="btn btn-primary">Book</button>
+    <button type="submit" class="btn btn-primary">Book Now</button>
 </form>
-{% endblock %}
+{% endblock content %}
 
 {% block extra_js %}
 <script src="{% static 'js/booking.js' %}"></script>
+
 {% endblock %}
 

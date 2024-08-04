@@ -1,57 +1,61 @@
-import datetime
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from pages.models import Service
-from .models import Booking
+from .models import Service, Booking
 from .forms import BookingForm
+import datetime
 
-TIME_SLOTS = [
-    "14:00", "14:10", "14:20", "14:30", "14:40", "14:50",
-    "15:00", "15:10", "15:20", "15:30", "15:40", "15:50",
-    "16:00", "16:10", "16:20", "16:30", "16:40", "16:50",
-    "17:00", "17:10", "17:20", "17:30", "17:40", "17:50",
-    "18:00", "18:10", "18:20", "18:30", "18:40", "18:50",
-    "19:00", "19:10", "19:20", "19:30", "19:40", "19:50",
-    "20:00", "20:10", "20:20", "20:30", "20:40", "20:50",
-    "21:00", "21:10", "21:20", "21:30"
-]
+# Define your time slot intervals
+TIME_SLOT_INTERVAL = datetime.timedelta(minutes=10)
+
+def generate_time_slots(start_time, end_time):
+    slots = []
+    current_time = start_time
+    while current_time <= end_time:
+        slots.append(current_time.strftime("%H:%M"))
+        current_time += TIME_SLOT_INTERVAL
+    return slots
 
 @login_required
 def book_service(request):
-    available_slots = TIME_SLOTS.copy()
-    selected_service_id = request.GET.get('service', None)
-    selected_date = request.GET.get('date', None)
+    # Time slot range
+    start_time = datetime.time(14, 0)
+    end_time = datetime.time(21, 30)
+    
+    available_slots = generate_time_slots(datetime.datetime.combine(datetime.date.today(), start_time),
+                                          datetime.datetime.combine(datetime.date.today(), end_time))
 
     if request.method == 'POST':
-        form = BookingForm(request.POST)
+        form = BookingForm(request.POST, time_slots=available_slots)
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
-            booking.time_slot = request.POST.get('time_slot')
+            booking.time_slot = datetime.datetime.strptime(form.cleaned_data['time_slot'], "%H:%M").time()
             booking.save()
             return redirect('booking_confirmation', booking_id=booking.id)
     else:
-        form = BookingForm()
+        form = BookingForm(time_slots=available_slots)
 
+    selected_service_id = request.GET.get('service', None)
+    selected_date = request.GET.get('date', None)
     if selected_service_id and selected_date:
         selected_service = Service.objects.get(id=selected_service_id)
         selected_date = datetime.datetime.strptime(selected_date, '%Y-%m-%d').date()
         service_duration = selected_service.duration
-        cleaning_time = datetime.timedelta(minutes=10)  # 10 minutes for cleaning
+        cleaning_time = datetime.timedelta(minutes=10)
         total_time = service_duration + cleaning_time
-
+        
+        # Filter existing bookings for the selected date and service
         bookings = Booking.objects.filter(service=selected_service, date=selected_date)
-
+        booked_slots = []
         for booking in bookings:
             booked_start_time = booking.time_slot
-            booked_start_datetime = datetime.datetime.combine(datetime.date.today(), booked_start_time)
-            booked_end_datetime = booked_start_datetime + total_time
-            current_time = booked_start_datetime
-            while current_time < booked_end_datetime:
-                time_str = current_time.time().strftime("%H:%M")
-                if time_str in available_slots:
-                    available_slots.remove(time_str)
-                current_time += datetime.timedelta(minutes=10)
+            booked_end_time = (datetime.datetime.combine(datetime.date.today(), booked_start_time) + total_time).time()
+            current_time = booked_start_time
+            while current_time <= booked_end_time:
+                booked_slots.append(current_time.strftime("%H:%M"))
+                current_time = (datetime.datetime.combine(datetime.date.today(), current_time) + TIME_SLOT_INTERVAL).time()
+
+        available_slots = [slot for slot in available_slots if slot not in booked_slots]
 
     return render(request, 'booking/book_service.html', {
         'form': form,
@@ -59,8 +63,3 @@ def book_service(request):
         'selected_service_id': selected_service_id,
         'selected_date': selected_date
     })
-
-@login_required
-def booking_confirmation(request, booking_id):
-    booking = Booking.objects.get(id=booking_id)
-    return render(request, 'booking/booking_confirmation.html', {'booking': booking})
