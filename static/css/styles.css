@@ -82,14 +82,14 @@ header .navbar-brand {
 }
 
 /* Footer Styles */
-/* footer {
+footer {
     color: #292b2c;
     text-align: center;
     padding: 1rem 0;
     position: absolute;
     bottom: 0;
     width: 100%;
-} */
+}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
