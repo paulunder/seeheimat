@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Select Service{% endblock %}
+
+{% block content %}
+<h1>Select Service</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="service">Select Service:</label>
+    <select id="service" name="service" required>
+        {% for service in services %}
+            <option value="{{ service.id }}">{{ service.name }} - {{ service.duration }} minutes</option>
+        {% endfor %}
+    </select>
+    <input type="hidden" name="date" value="{{ selected_date }}">
+    <button type="submit" class="btn btn-primary">Next</button>
+</form>
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/booking.js' %}"></script>
+
+{% endblock %}
+

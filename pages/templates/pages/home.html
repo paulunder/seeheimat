@@ -1,13 +1,75 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="jumbotron">
-    <h1 class="display-4">Welcome to Seeheimat</h1>
-    <p class="lead">We offer the best services to make your experience memorable.</p>
-    <hr class="my-4">
-    <p>Explore our services and get in touch with us for more details.</p>
-    <a class="btn btn-primary btn-lg" href="{% url 'services' %}" role="button">Learn more</a>
+
+<div class="d-block w-100 rounded" style="background-image: url({% static 'images/Kra_185_small.webp' %}); height: 75vh;">
+    <div class="jumbotron p-5 mt-5">
+        <h1 class="display-4">Welcome to Seeheimat</h1>
+        <p class="lead">We offer the best services to make your experience memorable.</p>
+        <hr class="my-4">
+        <p>Explore our services and get in touch with us for more details.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'select_date' %}" role="button">Book now</a>
+    </div>
 </div>
+
+<div class="ticker-wrap">
+    <div class="ticker">
+        <div class="ticker__item">KAFFEE</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">KUCHEN</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">SEE</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">ZIRBENKISSEN</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">EIS</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">BRETTLJAUSE</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">WELLNESS</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">MASSAGE</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">SONNENLIEGEN</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">NATURPRODUKTE</div>
+        <div class="ticker__item">≈</div>
+        <div class="ticker__item">SOUVENIRS</div>
+        <div class="ticker__item">≈</div>
+    </div>
+</div>
+
+
+<div class="container mt-5">
+    <h2>Our team</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'images/default.png' %}" class="card-img-top" alt="Placeholder">
+                <div class="card-body">
+                    <h5 class="card-title
+                    ">John Doe</h5>
+                    <p class="card-text">Lorem Ipsum</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'images/default.png' %}" class="card-img-top" alt="Placeholder">
+                <div class="card-body">
+                    <h5 class="card-title
+                    ">Jane Doe</h5>
+                    <p class="card-text">Lorem Ipsum</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 {% endblock %}
