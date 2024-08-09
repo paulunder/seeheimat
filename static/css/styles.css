@@ -1,17 +1,19 @@
 
 a {
-    color: #ffff;
+    color: #3f3f3f;
     text-decoration: none;
 }
 
 a:hover {
-    color: #ced4da;
+    transform: scale(1.1);
+    text-underline-offset: 5px;
+    transition: 200ms;
 }
 
 body {
-    background-color: #212529;
+    background-color: #e0e0e0;
     font-family: 'Montserrat', sans-serif;
-    color: #ffff;
+    color: #3f3f3f;
 }
 
 .ticker-wrap {
@@ -76,6 +78,22 @@ body {
     }
 }
 
+#achensee-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#achensee-image img {
+    max-height: 50vh;
+    width: auto;
+}
+
+#map {
+    height: 50vh;
+    width: 100%;
+}
 
 .grow {
     transition: all .2s ease-in-out;
@@ -102,18 +120,3 @@ body {
     color: green
 }
 
-.map-responsive {
-
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
-    overflow: hidden;
-}
-
-.map-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}

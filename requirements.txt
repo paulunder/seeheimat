@@ -24,6 +24,7 @@ Django==4.2.13
 django-allauth==0.57.2
 django-crispy-forms==2.3
 django-heroku==0.3.1
+django-rangefilter==0.9.1
 django-summernote==0.8.20.0
 fiona==1.9.6
 Flask==3.0.3

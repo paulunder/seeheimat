@@ -1,32 +1,20 @@
-# from django import forms
-# from .models import Booking
-
-# class BookingForm(forms.ModelForm):
-#     time_slot = forms.ChoiceField(choices=[], required=True, widget=forms.RadioSelect) 
-
-#     class Meta:
-#         model = Booking
-#         fields = ['service', 'date', 'time_slot'] 
-#         widgets = {
-#             'date': forms.DateInput(attrs={'type': 'date'}),
-#         }
-
-#     def __init__(self, *args, **kwargs):
-#         time_slots = kwargs.pop('time_slots', [])
-#         super().__init__(*args, **kwargs)
-#         self.fields['time_slot'].choices = [(slot, slot) for slot in time_slots]
-
-
-
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 3rd party:
 from django import forms
+from datetime import datetime
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Internal:
 from .models import Booking
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['service', 'date', 'time_slot']
+        fields = ['name', 'email', 'service', 'requested_date', 'requested_time']
+        
 
     def __init__(self, *args, **kwargs):
-        time_slots = kwargs.pop('time_slots', [])
         super().__init__(*args, **kwargs)
-        self.fields['time_slot'].choices = [(slot, slot) for slot in time_slots]
+        self.fields['requested_time'].widget.attrs['placeholder'] = 'Requested Time'
+        self.fields['requested_date'].widget = forms.DateInput(attrs={'type': 'date', 'min': datetime.now().date()})

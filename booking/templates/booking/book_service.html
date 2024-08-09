@@ -1,70 +1,59 @@
 {% extends "base.html" %}
-{% load static %}
 {% load crispy_forms_tags %}
-{% block title %}Book Service{% endblock %}
 
 {% block content %}
-<h1>Book Service</h1>
-<form method="post">
-    {% csrf_token %}
-    <input type="hidden" name="date" value="{{ selected_date }}">
-    <input type="hidden" name="service" value="{{ selected_service_id }}">
-    <input type="hidden" name="time_slot" id="selected-time-slot">
-    
-    <h3>Select Time Slot:</h3>
-    <div id="time-slots">
-        {% for slot in available_slots %}
-            <button type="button" class="time-slot" data-slot="{{ slot }}">{{ slot }}</button>
-        {% endfor %}
+
+<div class="container-fluid mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-8 mt-5 mb-5">
+            <h1 class="text-center">Book a Service</h1><hr>
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-primary">Book Now</button>
-</form>
-
-<style>
-      #time-slots {
-        margin: 10px 0;
-    }
-
-    .time-slot {
-        padding: 10px 20px;
-        margin: 5px;
-        border: 1px solid #007bff;
-        background-color: #fff;
-        color: #007bff;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-
-    .time-slot.active {
-        background-color: #007bff;
-        color: white;
-    }
-
-    .time-slot.disabled {
-        background-color: #e9ecef;
-        color: #6c757d;
-        cursor: not-allowed;
-        border-color: #6c757d;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-        color: white;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #004085;
-    }
-</style>
-{% endblock content %}
-
-
-{% block extra_js %}
-<script src="{% static 'js/booking.js' %}"></script>
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 p-5 bg-darker rounded booking-card">
+                        <!-- Display form if user is logged in-->
+                        {% if user.is_authenticated %}
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <h5 class="fw-bold mt-3">Your Booking</h5>
+                            </div>
+                        </div>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ booking_form|crispy }}
+                            <button class="btn btn-success" type="submit">Submit</button>
+                        </form>
+                        {% else %}
+                        <h3>Login Required</h3>
+                        <p>Please login for booking a service</p>
+                        <button class="btn btn-success" type="submit"><a href="{% url 'account_login' %}">Go to Login
+                                Page</a></button>
+                        {% endif %}
+                        
+                        <!-- Form Errors from stack overflow -->
+                        {% if booking_form.errors %}
+                        {% for field in booking_form %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% for error in booking_form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
-

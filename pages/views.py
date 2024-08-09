@@ -7,9 +7,6 @@ def home(request):
 # def services(request):
 #     return render(request, 'pages/services.html')
 
-def contact(request):
-    return render(request, 'pages/contact.html')
-
 def services_view(request):
     services = Service.objects.all()
     return render(request, 'pages/services.html', {'services': services})
