@@ -46,14 +46,13 @@ body {
     animation-name: ticker;
     -webkit-animation-duration: 30s;
     animation-duration: 30s;
-
 }
 
 .ticker-wrap .ticker__item {
     display: inline-block;
     padding: 0 2rem;
     font-size: 2rem;
-    color: #79B341;
+    color: #c7c7c7;
 }
 
 @-webkit-keyframes ticker {
