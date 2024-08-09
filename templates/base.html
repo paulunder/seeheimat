@@ -15,11 +15,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon_io/favicon.ico' %}">
+    
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
-            <a class="navbar-brand" href="{% url 'home' %}">Seeheimat</a>
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/seeheimat_logo.webp' %}" alt="Logo" style="max-height: 2vh; vertical-align:baseline ;"></img></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,6 +43,9 @@
                         <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                     </li>
                     {% if user.is_authenticated %}
+                    <li>
+                        <a class="nav-link" href="{% url 'booking_list' %}">My Bookings</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
                     </li>
@@ -90,6 +95,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     {% block extras %}
     {% endblock %}

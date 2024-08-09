@@ -3,6 +3,7 @@
 
 {% block title %}Home{% endblock %}
 
+
 {% block content %}
 
 <div class="d-block w-100 rounded" style="background-image: url({% static 'images/Kra_185_small.webp' %}); height: fit-content">
@@ -13,6 +14,7 @@
         <p>Explore our services and get in touch with us for more details.</p>
         <a class="btn btn-primary btn-lg" href="{% url 'booking_list' %}" role="button">Book now</a>
     </div>
+    
 
     <div class="ticker-wrap mt-5">
         <div class="ticker">
@@ -43,44 +45,24 @@
 </div>
 
 <div class="row">
-    <div class="card mt-5 mb-5 mx-auto">
+    <div class="card mt-5 mb-5 mx-auto text-white">
         <h2>Opening Times</h2>
         <ul>
             <li>Sommer: Monday - Sunday | 10:00 - 18:00 </li>
             <li>Winter: Monday - Sunday | 11:00 - 17:00 </li>
         </ul>
     </div>
-    </div>
+</div>
 
-    <div class="col-md-8">
-        <div class="row">
-            <div class="col-md-6">
-                <div id="achensee-image">
-                    <a href="https://maps.app.goo.gl/CJFqh4fPjpFdzc8i7" target="_blank">
-                        <img id="location-image" src="{% static 'images/achensee_location.webp' %}" alt="Kräuterhüttl Achensee Location">
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                
-                <!-- openstreetmap -->
-                <div id="map"></div>
-
-                <!-- Javascript for map -->
-                <script>
-                    var mymap = L.map('map').setView([47.4398, 11.7137], 13);
-
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                        { subdomains: ['a', 'b', 'c'] })
-                        .addTo(mymap);
-
-                    var customMarker = L.marker([47.4398, 11.7137]).addTo(mymap)
-                        .bindPopup('Your Custom Marker');
-                </script>
-
-            </div>
+<div class="card mt-5 dark-bg">
+    <h2 class="m-5 text-center text-white">Our Location</h2>
+        <div class="p-5" id="achensee-image">
+            <a href="https://maps.app.goo.gl/CJFqh4fPjpFdzc8i7" target="_blank">
+                <img id="location-image" src="{% static 'images/achensee_location.webp' %}" alt="Kräuterhüttl Achensee Location">
+            </a>
         </div>
     </div>
+
 
     <h2 class="mt-5">Our team</h2>
     <div class="row">
