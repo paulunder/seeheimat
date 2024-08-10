@@ -139,8 +139,170 @@ Seeheimat | alps ~ wellness is a business concept that offers wellness wellness 
 
 ## Design
 
-### Colours
+### Colors
 
 I chose more light colors with low contrast to give the user a relaxing feeling when visiting the site. The colors are also used to give the user a feeling of being in the alps.
+
+########################
+
+### Structure
+
+#### Website pages
+
+The site was designed to be easy to navigate and user friendly. The user should immediately see what the business is for and what the offer is.
+
+The footer also contains a social media link to the business' instagram site.
+
+- The site consists of the following pages:
+  - Home
+  - Register
+  - Login
+  - Logout
+  - Bookings
+  - Bookings List
+  - Edit Booking
+  - Contact Us
+  - Services (Treatments)
+  - Blog
+  - Blog Post Details
+  - 404 Page
+  - 500 Page
+
+#### Database
+
+- Built with Python and the Django framework with a database of CodeInstitute's Postgres - the project is deployed with heroku
+
+<details><summary>Show diagram</summary>
+<img src="docs/db-diagram.png">
+</details>
+
+##### User Model
+
+The User Model contains the following:
+
+- user_id
+- password
+- last_login
+- is_superuser
+- username
+- email
+- date_joined
+
+##### Service Model
+
+The Service Model contains the following:
+
+- service_id
+- name
+- description
+- price
+- duration
+
+##### Contact Model
+
+The Contact Model contains the following:
+
+- message_id
+- name
+- email
+- subject
+- message
+- created_at
+
+##### Booking Model
+
+The Booking Model contains the following:
+
+- booking_id (PrimaryKey)
+- created_date
+- requested_date
+- requested_time
+- service (ForeignKey)
+- user (ForeignKey)
+- name
+- email
+- status
+
+##### Post Model
+
+The Post Model contains the following:
+
+- post_id (PrimaryKey)
+- title
+- slug
+- author (ForeignKey)
+- featured_image
+- content
+- created_on
+- status
+- excerpt
+- updated_date
+
+##### Comment Model
+
+The Comment Model contains the following:
+
+- comment_id (PrimaryKey)
+- post (ForeignKey)
+- author (ForeignKey)
+- body
+- approved
+- created_on
+
+### Wireframes
+
+The wireframes were created using Balsamiq
+
+#### Home
+
+<details><summary></summary>
+<img src="docs/wireframes/home.png">
+</details>
+
+#### Blog
+
+<details><summary></summary>
+<img src="docs/wireframes/blog.png">
+</details>
+
+#### My Bookings
+
+<details><summary></summary>
+<img src="docs/wireframes/booking_list.png">
+</details>
+
+#### booking
+
+<details><summary></summary>
+<img src="docs/wireframes/booking.png">
+</details>
+
+#### Contact Page
+
+<details><summary></summary>
+<img src="docs/wireframes/contact.png">
+</details>
+
+#### Login
+
+<details><summary></summary>
+<img src="docs/wireframes/login.png">
+</details>
+
+#### Services
+
+<details><summary></summary>
+<img src="docs/wireframes/services.png">
+</details>
+
+## Technologies Used
+
+### Languages & Frameworks
+
+- HTML
+- CSS
+- Javascript
+- Python
+- Django
 
 ########################

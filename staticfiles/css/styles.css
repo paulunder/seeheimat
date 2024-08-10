@@ -31,6 +31,7 @@ footer li {
     text-align: center;
     display: flex;
     flex-direction: column;
+    left: 0;
 }
 
 #social-network {
@@ -49,8 +50,6 @@ footer li {
     flex-direction: column;
 }
 
-
-
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -61,6 +60,11 @@ footer li {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+
+footer > ul {
+    padding-left: 0;
+}
+
 
 
 /* home.html */
