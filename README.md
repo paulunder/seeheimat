@@ -5,7 +5,7 @@ TODO: make responsive image here
 
 **Developer: Paul Pfister**
 
-💻 [Visit live website](https://ci-pp4-the-diplomat.herokuapp.com/)  
+💻 [Visit live website](https://)  
 (Ctrl + click to open in new tab)
 
 ## Table of Contents
@@ -112,10 +112,35 @@ Seeheimat | alps ~ wellness is a business concept that offers wellness wellness 
 24. As a site owner I want that nobody can book the same appointment at a time (Must have)
 25. As a site owner I need to accept or reject bookings to handle time (Must have)
 
-### Kanban, Epics & User Stories
+### Milestones & User Stories
 
 - GitHub Kanban was used to track all open user stories
-- Epics were created using the milestones feature
-- Backlog, In Progress, Done headings were used in the kanban
+- Milestones were used to track the progress of the project
 
 ####################
+
+<details><summary>Milestones</summary>
+
+![All Milestones](docs/milestones/milestones_all.PNG)
+![Milestone 1](docs/milestones/milestone_1.PNG)
+![Milestone 2](docs/milestones/milestone_2.PNG)
+![Milestone 3](docs/milestones/milestone_3.PNG)
+![Milestone 4](docs/milestones/milestone_4.PNG)
+
+</details>
+
+<details><summary>User Stories</summary>
+
+![User stories](docs/user-stories/user-stories.PNG)
+
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Design
+
+### Colours
+
+I chose more light colors with low contrast to give the user a relaxing feeling when visiting the site. The colors are also used to give the user a feeling of being in the alps.
+
+########################
