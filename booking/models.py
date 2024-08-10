@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from pages.models import Service
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Restaurant first sitting at noon and last sitting 11pm
+# Working hours of the massage service
 time_slots = (
     ('12:00', '12:00'),
     ('13:00', '13:00'),
@@ -22,7 +22,7 @@ time_slots = (
 )
 
 
-# Status options inspired by the JustEat status' when ordering
+# Status options
 status_options = (
     ('Awaiting confirmation', 'Awaiting Confirmation'),
     ('Booking Confirmed', 'Booking Confirmed'),
@@ -31,7 +31,6 @@ status_options = (
 )
 
 # The booking model for the database
-
 class Booking(models.Model):
     """
     a class for the Booking model

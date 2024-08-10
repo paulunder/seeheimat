@@ -27,48 +27,6 @@ def get_user_instance(request):
     user = User.objects.filter(email=user_email).first()
     return user
 
-
-# class BookService(generic.ListView):
-#     """
-#     This view will display all the services
-#     a particular user can book
-#     """
-#     model = Booking
-#     queryset = Booking.objects.filter().order_by('-created_date')
-#     template_name = 'booking/book_service.html'
-#     paginated_by = 4
-
-#     def get(self, request, *args, **kwargs):
-#         """
-#         Retrieves user details if logged in
-#         """
-            
-#         booking = Booking.objects.all()
-#         if request.user.is_authenticated:
-#             user = get_user_instance(request)
-#             paginator = Paginator(Booking.objects.filter(user=request.user), 4)
-#         else:
-#             paginator = Paginator(Booking.objects.all(), 4)
-#         page = request.GET.get('page')
-#         booking_page = paginator.get_page(page)
-#         today = datetime.datetime.now().date()
-
-#         for date in booking:
-#             if date.requested_date < today:
-#                 date.status = 'Booking Expired'
-
-#         if request.user.is_authenticated:
-#             bookings = Booking.objects.filter(user=request.user)
-#             return render(
-#                 request,
-#                 'booking/book_service.html',
-#                 {
-#                     'booking': booking,
-#                     'bookings': bookings,
-#                     'booking_page': booking_page})
-#         else:
-#             return redirect('account_login')
-
 class BookService(View):
     template_name = 'booking/book_service.html'
 
@@ -85,7 +43,7 @@ class BookService(View):
             booking = form.save(commit=False)
             booking.user = request.user
             booking.save()
-            return redirect('booking_list') 
+            return redirect('confirmed') 
         context = {'booking_form': form}
         if request.user.is_authenticated:
             context['bookings'] = Booking.objects.filter(user=request.user)
@@ -98,17 +56,13 @@ class Confirmed(generic.DetailView):
     """
     This view will display confirmation on a successful booking
     """
-    template_name = 'bookings/confirmed.html'
+    template_name = 'booking/book_confirmation.html'
 
     def get(self, request):
-        return render(request, 'bookings/confirmed.html')
+        return render(request, 'booking/book_confirmation.html')
 
 
 # Display all the bookings the user has active,
-# bookings older than today will be expired and the
-# user will not be able to edit or cancel them once
-# expired
-
 
 class BookingList(generic.ListView):
     """
@@ -149,9 +103,7 @@ class BookingList(generic.ListView):
             return redirect('account_login')
 
 
-# Displays the edit booking page and form so the user
-# can then change any detail of the booking and update it
-
+# Displays the edit booking page and form so the user can then change any detail of the booking and update it
 
 class EditBooking(SuccessMessageMixin, UpdateView):
     """
