@@ -65,8 +65,6 @@ footer > ul {
     padding-left: 0;
 }
 
-
-
 /* home.html */
 
 .ticker-wrap {
@@ -158,10 +156,6 @@ footer > ul {
 .card {
     background-color: rgb(0, 0, 0, 0.2);
     padding: 20px;
-}
-
-.booking-card {
-    color: #ced4da;
 }
 
 .bg-darker {

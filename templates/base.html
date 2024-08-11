@@ -17,12 +17,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css">
     <!-- favicon link -->
     <link rel="icon" type="image/x-icon" href="{% static 'favicon_io/favicon.ico' %}">
+
     
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
-            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/seeheimat_logo.webp' %}" alt="Logo" style="max-height: 2vh; vertical-align:baseline ;"></img></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/seeheimat_logo.webp' %}" alt="Logo" style="max-height: 2vh; vertical-align:baseline ;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -69,12 +70,6 @@
             <div class="alert alert-{% if message.tags %}{{ message.tags }}{% else %}info{% endif %} alert-dismissible fade show m-3" role="alert">
                 {{ message }}
             </div>
-            <script>
-                // Auto-close messages after 5 seconds
-                setTimeout(function() {
-                    $('.alert').alert('close');
-                }, 5000);
-            </script>
             {% endfor %}
         </div>
         {% endif %}
@@ -98,6 +93,7 @@
     </footer>
 
     <!-- Bootstrap JS and dependencies -->
+    <script src="{% static 'js/script.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

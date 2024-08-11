@@ -27,6 +27,7 @@ def get_user_instance(request):
     user = User.objects.filter(email=user_email).first()
     return user
 
+
 class BookService(View):
     template_name = 'booking/book_service.html'
 
@@ -43,7 +44,7 @@ class BookService(View):
             booking = form.save(commit=False)
             booking.user = request.user
             booking.save()
-            return redirect('confirmed') 
+            return redirect('confirmed')
         context = {'booking_form': form}
         if request.user.is_authenticated:
             context['bookings'] = Booking.objects.filter(user=request.user)
@@ -103,7 +104,8 @@ class BookingList(generic.ListView):
             return redirect('account_login')
 
 
-# Displays the edit booking page and form so the user can then change any detail of the booking and update it
+# Displays the edit booking page and form so the user can then
+# change any detail of the booking and update it
 
 class EditBooking(SuccessMessageMixin, UpdateView):
     """

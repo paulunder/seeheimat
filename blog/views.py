@@ -5,12 +5,13 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
 
+
 # Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/blog_list.html"
     paginate_by = 6
-    
+
 
 def post_detail(request, slug):
     """
@@ -49,10 +50,11 @@ def post_detail(request, slug):
     return render(
         request,
         "blog/blog_detail.html",
-        {"post": post,
-        "comments": comments,
-        "comment_count": comment_count,
-        "comment_form": comment_form,
+        {
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form,
         },
     )
 

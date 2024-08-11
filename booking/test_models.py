@@ -4,6 +4,7 @@ from datetime import date, timedelta
 from pages.models import Service
 from .models import Booking
 
+
 class BookingModelTest(TestCase):
     """
     Test the booking model
@@ -14,10 +15,14 @@ class BookingModelTest(TestCase):
         Set up initial data for tests
         """
         # Create a user
-        self.user = User.objects.create_user(username='testuser', password='testpass')
-        
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass')
+
         # Create a service
-        self.service = Service.objects.create(name='Test Service', description='Test description', duration= timedelta(minutes=60), price=50.00)
+        self.service = Service.objects.create(
+            name='Test Service',
+            description='Test description',
+            duration=timedelta(minutes=60), price=50.00)
 
         # Create a booking
         self.booking = Booking.objects.create(
@@ -49,7 +54,7 @@ class BookingModelTest(TestCase):
 
     def test_booking_unique_together(self):
         """
-        Test the unique constraint on requested_date, requested_time, and service
+        Test the unique constraint on requested_date, requested_time & service
         """
         with self.assertRaises(Exception):
             Booking.objects.create(

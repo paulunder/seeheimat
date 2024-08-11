@@ -7,6 +7,7 @@ from rangefilter.filters import DateRangeFilter
 from booking.models import Booking
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 # Registration of bookings to display in the admin panel
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):

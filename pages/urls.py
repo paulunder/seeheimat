@@ -5,4 +5,3 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('services/', views.services_view, name='services'),
 ]
-

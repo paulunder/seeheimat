@@ -13,13 +13,15 @@ from .models import Booking
 from .forms import BookingForm
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 class BookingViewsTestCase(TestCase):
     """
     Tests for the views in the booking app
     """
     def setUp(self):
         self.client = Client()
-        self.user = User.objects.create_user(username='testuser', password='password', email='test@example.com')
+        self.user = User.objects.create_user(
+            username='testuser', password='password', email='test@example.com')
         self.client.login(username='testuser', password='password')
 
         self.booking = Booking.objects.create(
@@ -37,18 +39,19 @@ class BookingViewsTestCase(TestCase):
         self.assertTemplateUsed(response, 'booking/book_service.html')
         self.assertContains(response, 'form')
 
-    
     def test_book_service_post_valid(self):
         form_data = {
             'name': 'Test Booking',
             'email': 'testuser@example.com',
-            'service': Service.objects.create(name='Test Service', description='Test description', duration=timedelta(minutes=60), price=50.00).pk,
-            'requested_date': (datetime.now().date() + timedelta(days=1)).isoformat(),
+            'service': Service.objects.create(
+                name='Test Service', description='Test description',
+                duration=timedelta(minutes=60), price=50.00).pk,
+            'requested_date': (
+                datetime.now().date() + timedelta(days=1)).isoformat(),
             'requested_time': '14:00'
         }
         response = self.client.post(reverse('book_service'), form_data)
         self.assertRedirects(response, reverse('confirmed'))
-
 
     def test_book_service_post_invalid(self):
         """
@@ -88,7 +91,8 @@ class BookingViewsTestCase(TestCase):
         """
         Test the edit_booking view
         """
-        response = self.client.get(reverse('edit_booking', args=[self.booking.pk]))
+        response = self.client.get(reverse('edit_booking', args=[
+            self.booking.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'booking/book_edit.html')
         self.assertContains(response, 'form')
@@ -97,7 +101,8 @@ class BookingViewsTestCase(TestCase):
         """
         Test the cancel_booking view
         """
-        response = self.client.get(reverse('book_cancel', args=[self.booking.pk]))
+        response = self.client.get(reverse('book_cancel', args=[
+            self.booking.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'booking/book_cancel.html')
 
@@ -105,7 +110,8 @@ class BookingViewsTestCase(TestCase):
         """
         Test the cancel_booking view with a POST request
         """
-        response = self.client.post(reverse('book_cancel', args=[self.booking.pk]))
+        response = self.client.post(reverse('book_cancel', args=[
+            self.booking.pk]))
         self.assertRedirects(response, reverse('booking_list'))
         self.assertFalse(Booking.objects.filter(pk=self.booking.pk).exists())
         messages = list(get_messages(response.wsgi_request))
