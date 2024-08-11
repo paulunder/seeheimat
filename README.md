@@ -305,4 +305,461 @@ The wireframes were created using Balsamiq
 - Python
 - Django
 
-########################
+### Libraries & Tools
+
+- [Am I Responsive](http://ami.responsivedesign.is/)
+- [Figma](https://figma.com/)
+- [Bootstrap v4.5](https://getbootstrap.com/)
+- [Cloudinary](https://cloudinary.com/)
+- [Favicon.io](https://favicon.io)
+- [Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools/)
+- [Font Awesome](https://fontawesome.com/)
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [Google Fonts](https://fonts.google.com/)
+- [Heroku Platform](https://id.heroku.com/login)
+- [jQuery](https://jquery.com)
+- [Postgres](https://dbs.ci-dbs.net/)
+- [Summernote](https://summernote.org/)
+- Validation:
+  - [WC3 Validator](https://validator.w3.org/)
+  - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
+  - [JShint](https://jshint.com/)
+  - [CI Python Linter](https://pep8ci.herokuapp.com/)
+  - [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
+  - [Wave Validator](https://wave.webaim.org/)
+
+##### Back to [top](#table-of-contents)
+
+## Features
+
+### Home page
+
+- Home page includes nav bar, main body and a footer
+
+<details><summary>See feature images</summary>
+
+![Home page](docs/features/home-screen.png)
+
+</details>
+
+### Logo & Navigation
+
+- Custom logo for the business
+- Fully Responsive
+- On small screens switches to hamburger menu
+- Indicates login/logout in status
+- displayed on all pages
+
+<details><summary>See feature images</summary>
+
+![Footer](docs/features/nav-bar-desktop.png)
+![Footer](docs/features/nav-bar-mobile.png)
+
+</details>
+
+### Footer
+
+- Contains social media links and copyright
+- displayed across all pages
+
+<details><summary>See feature images</summary>
+
+![Footer](docs/features/footer.png)
+
+</details>
+
+### Sign up / Register
+
+- Allow users to register an acoount
+- Username and password is required, email is optional
+
+<details><summary>See feature images</summary>
+
+![Sign Up](docs/features/sign-up.png)
+
+</details>
+
+### Login
+
+- User can login to create a booking, view bookings, edit and delete bookings
+
+<details><summary>See feature images</summary>
+
+![Sign In](docs/features/sign-in.png)
+
+</details>
+
+### Logout
+
+- Allows the user to securely log out
+- Ask user if they are sure they want to log out
+
+<details><summary>See feature images</summary>
+
+![Sign Out](docs/features/sign-out.png)
+
+</details>
+
+### Book
+
+- Allows the user to book a table using the booking form
+- Messages are displayed if the data is not valid such as phone number lenght is too short and the email address is not a valid format
+
+<details><summary>See feature images</summary>
+
+![Book a Service](docs/features/book-a-service.png)
+
+</details>
+
+### My Bookings
+
+- Allows the user to see all their bookings in a paginated layout
+- Status of the booking is displayed, awaiting confirmation and when approved will then change to confirmed status for the user
+
+<details><summary>See feature images</summary>
+
+![My Bookings](docs/features/my-bookings.png)
+
+</details>
+
+### Edit Booking
+
+- Allows the user to edit their entire booking and update the booking
+<details><summary>See feature images</summary>
+
+![Edit Booking](docs/features/edit-booking.png)
+
+</details>
+
+### Cancel Booking
+
+- Allows the user to cancel their booking, asks user are they sure
+
+<details><summary>See feature images</summary>
+
+![Cancel Booking](docs/features/cancel-booking.png)
+
+</details>
+
+### Services
+
+- The services page displays all available treatments
+- Items can be added via the admin panel in the backend
+- A service which is shown here - is always bookable
+
+<details><summary>See feature images</summary>
+
+![Services Page](docs/features/services.png)
+
+</details>
+
+### Blog
+
+- The blog displays posts made in the admin panel
+- Paginations is used to display 4 posts per page
+
+<details><summary>See feature images</summary>
+
+![Blog](docs/features/blog-list.png)
+
+</details>
+
+### Post Details
+
+- The post details page displays the full post
+- The author, date and content is displayed
+
+<details><summary>See feature images</summary>
+
+![Post Details](docs/features/post-details.png)
+
+</details>
+
+### Comments
+
+- Comments can be made on each post
+- Comments can be approved or rejected by the admin
+- Only registered users can comment
+
+<details><summary>See feature images</summary>
+
+![Comments](docs/features/comments.png)
+
+</details>
+
+### Contact Us
+
+- Registered users can contact the business
+- Name, email, subject and message is required
+- The message is displayed in the admin panel
+
+<details><summary>See feature images</summary>
+
+![Contact Us](docs/features/contact-us.png)
+
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Validation
+
+The W3C Markup Validation Service
+
+<details><summary>Home</summary>
+<img src="docs/validation/html/home.png">
+</details>
+
+<details><summary>Post Details</summary>
+<img src="docs/validation/html/blog_detail.png">
+</details>
+
+<details><summary>Post List</summary>
+<img src="docs/validation/html/blog_list.png">
+</details>
+
+<details><summary>Book a Service</summary>
+<img src="docs/validation/html/book_service.png">
+</details>
+
+<details><summary>My Bookings</summary>
+<img src="docs/validation/html/my_bookings.png">
+</details>
+
+<details><summary>Contact</summary>
+<img src="docs/validation/html/contact.png">
+</details>
+
+<details><summary>Login</summary>
+<img src="docs/validation/html/login.png">
+</details>
+
+<details><summary>Logout</summary>
+<img src="docs/validation/html/logout.png">
+</details>
+
+<details><summary>Services</summary>
+<img src="docs/validation/html/services.png">
+</details>
+
+<details><summary>404</summary>
+<img src="docs/validation/html/404.png">
+</details><hr>
+
+### CSS Validation
+
+The W3C Jigsaw CSS Validation Service
+
+<details><summary>Style.css</summary>
+<img src="docs/validation/css/W3C-css-validation.png">
+</details><hr>
+
+### JavaScript Validation
+
+JSHint JS Validation Service
+
+<details><summary>Script.js</summary>
+<img src="docs/validation/js/script-js.png">
+</details><hr>
+
+<details><summary>comment.js</summary>
+<img src="docs/validation/js/comment-js.png">
+</details><hr>
+
+### PEP8 Validation
+
+The tool CI Python Linter was used - ![CI Python Linter](https://pep8ci.herokuapp.com/)
+
+<hr><summary>blog</summary><hr>
+
+<details><summary>admin.py</summary>
+<img src="docs/validation/pep8/blog/admin-py.png">
+</details>
+
+<details><summary>apps.py</summary>
+<img src="docs/validation/pep8/blog/apps-py.png">
+</details>
+
+<details><summary>forms.py</summary>
+<img src="docs/validation/pep8/blog/forms-py.png">
+</details>
+
+<details><summary>models.py</summary>
+<img src="docs/validation/pep8/blog/models-py.png">
+</details>
+
+<details><summary>urls.py</summary>
+<img src="docs/validation/pep8/blog/urls-py.png">
+</details>
+
+<details><summary>views.py</summary>
+<img src="docs/validation/pep8/blog/views-py.png">
+</details>
+
+<hr><summary>booking</summary><hr>
+
+<details><summary>admin.py</summary>
+<img src="docs/validation/pep8/booking/admin-py.png">
+</details>
+
+<details><summary>apps.py</summary>
+<img src="docs/validation/pep8/booking/apps-py.png">
+</details>
+
+<details><summary>forms.py</summary>
+<img src="docs/validation/pep8/booking/forms-py.png">
+</details>
+
+<details><summary>models.py</summary>
+<img src="docs/validation/pep8/booking/models-py.png">
+</details>
+
+<details><summary>test_models.py</summary>
+<img src="docs/validation/pep8/booking/test_models-py.png">
+</details>
+
+<details><summary>test_urls.py</summary>
+<img src="docs/validation/pep8/booking/test_urls-py.png">
+</details>
+
+<details><summary>test_views.py</summary>
+<img src="docs/validation/pep8/booking/test_views-py.png">
+</details>
+
+<details><summary>urls.py</summary>
+<img src="docs/validation/pep8/booking/urls-py.png">
+</details>
+
+<details><summary>views.py</summary>
+<img src="docs/validation/pep8/booking/views-py.png">
+</details>
+
+<hr><summary>contact</summary><hr>
+
+<details><summary>admin.py</summary>
+<img src="docs/validation/pep8/contact/admin-py.png">
+</details>
+
+<details><summary>apps.py</summary>
+<img src="docs/validation/pep8/contact/apps-py.png">
+</details>
+
+<details><summary>forms.py</summary>
+<img src="docs/validation/pep8/contact/forms-py.png">
+</details>
+
+<details><summary>models.py</summary>
+<img src="docs/validation/pep8/contact/models-py.png">
+</details>
+
+<details><summary>urls.py</summary>
+<img src="docs/validation/pep8/contact/urls-py.png">
+</details>
+
+<details><summary>views.py</summary>
+<img src="docs/validation/pep8/contact/views-py.png">
+</details>
+
+<hr><summary>pages</summary><hr>
+
+<details><summary>admin.py</summary>
+<img src="docs/validation/pep8/pages/admin-py.png">
+</details>
+
+<details><summary>apps.py</summary>
+<img src="docs/validation/pep8/pages/apps-py.png">
+</details>
+
+<details><summary>models.py</summary>
+<img src="docs/validation/pep8/pages/models-py.png">
+</details>
+
+<details><summary>urls.py</summary>
+<img src="docs/validation/pep8/pages/urls-py.png">
+</details>
+
+<details><summary>views.py</summary>
+<img src="docs/validation/pep8/pages/views-py.png">
+</details>
+
+### Lighthouse
+
+Performance, best practices and SEO was tested using Lighthouse.
+
+#### Desktop
+
+<details><summary>Home</summary>
+<img src="docs/validation/lighthouse/home.png">
+</details>
+
+<details><summary>Sign Up</summary>
+<img src="docs/validation/lighthouse/signup.png">
+</details>
+
+<details><summary>Login</summary>
+<img src="docs/validation/lighthouse/login.png">
+</details>
+
+<details><summary>Book a Service</summary>
+<img src="docs/validation/lighthouse/book_a_service.png">
+</details>
+
+<details><summary>My bookings</summary>
+<img src="docs/validation/lighthouse/booking_list.png">
+</details>
+
+<details><summary>Contact</summary>
+<img src="docs/validation/lighthouse/contact.png">
+</details>
+
+<details><summary>Post Details</summary>
+<img src="docs/validation/lighthouse/post_details.png">
+</details>
+
+<details><summary>Post List</summary>
+<img src="docs/validation/lighthouse/post_list.png">
+</details>
+
+<details><summary>Services</summary>
+<img src="docs/validation/lighthouse/services.png">
+</details>
+
+### Wave
+
+WAVE was used to test the websites accessibility.
+
+<details><summary>Index</summary>
+<img src="docs/validation/accessibility/wave-home.png">
+</details>
+
+<details><summary>Book a Service</summary>
+<img src="docs/validation/accessibility/wave-book_a_service.png">
+</details>
+
+<details><summary>Contact</summary>
+<img src="docs/validation/accessibility/wave-contact.png">
+</details>
+
+<details><summary>Login</summary>
+<img src="docs/validation/accessibility/wave-sign_in.png">
+</details>
+
+<details><summary>Signup</summary>
+<img src="docs/validation/accessibility/wave-sign_up.png">
+</details>
+
+<details><summary>Post list</summary>
+<img src="docs/validation/accessibility/wave-post-list.png">
+</details>
+
+<details><summary>Post details</summary>
+<img src="docs/validation/accessibility/wave-post-details.png">
+</details>
+
+<details><summary>My Bookings</summary>
+<img src="docs/validation/accessibility/wave-services.png">
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+###################
