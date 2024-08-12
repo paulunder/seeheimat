@@ -92,7 +92,7 @@ Seeheimat | alps ~ wellness is a business concept that offers wellness wellness 
 10. As a site user I want to get notified if an Action took place - so the site needs to write a message when operation with CRUD operations (Must have)
 11. As a site user I expect that the site works on all common devices (Must have)
 12. As a site user i want to see what services I can book (Must have)
-13. As a User I can not book a table already booked so that my booking is valid and not double booked (Must have)
+13. As a User I can not book a service at a time already booked so that my booking is valid and not double booked (Must have)
 14. As a site user I want to book valid appointments - no dates in the past (Must have)
 15. As a site user i want to login to CRUD my bookings (Must have)
 16. As a site user I need to sign up to book an appointment (Must have)
@@ -403,7 +403,7 @@ The wireframes were created using Balsamiq
 
 ### Book
 
-- Allows the user to book a table using the booking form
+- Allows the user to book a service using the booking form
 - Messages are displayed if the data is not valid such as phone number lenght is too short and the email address is not a valid format
 
 <details><summary>See feature images</summary>
@@ -914,7 +914,7 @@ WAVE was used to test the websites accessibility.
 
 </details>
 
-13. As a User I can not book a table already booked so that my booking is valid and not double booked
+13. As a User I can not book a service at a time already booked so that my booking is valid and not double booked
 
 | **Step**                                  | **Expected Result**        | **Actual Result** |
 | ----------------------------------------- | -------------------------- | ----------------- |
@@ -1114,3 +1114,136 @@ I used different browsers with my Macbook Pro and also tested it on my Oneplus 8
 ##### Back to [top](#table-of-contents)<hr>
 
 #############################
+
+### Heroku Deployment
+
+[Official Page](https://devcenter.heroku.com/articles/git) (Ctrl + click)
+
+This application has been deployed from Github using Heroku. Here's how:
+
+1. Create an account at heroku.com
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-01.PNG">
+</details>
+
+2. Create an app and select a region
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-02.PNG">
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-03.PNG">
+</details>
+
+3. Under resources search for postgres, and add a Postgres database to the app
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-04.PNG">
+</details>
+
+Heroku Postgres
+
+1. Note the DATABASE_URL, this can be set as an environment variable in Heroku and your local deployment(env.py)
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-18.PNG">
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-17.PNG">
+</details>
+
+2. Install the plugins dj-database-url and psycopg2-binary.
+
+3. Run pip3 freeze > requirements.txt so both are added to the requirements.txt file
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-05.PNG">
+</details>
+
+4. Create a Procfile with the text: web: gunicorn the_diplomat.wsgi
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-06.PNG">
+</details>
+
+5. In the settings.py ensure the connection is to the Heroku postgres database, no indentation if you are not using a seperate test database.
+I store mine in env.py
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-07.PNG">
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-08.PNG">
+</details>
+
+6. Ensure debug is set to false in the settings.py file
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-09.PNG">
+</details>
+
+7. Add localhost, and ci-pp4-the-diplomat.herokuapp.com to the ALLOWED_HOSTS variable in settings.py
+
+8. Run "python3 manage.py showmigrations" to check the status of the migrations
+
+9. Run "python3 manage.py migrate" to migrate the database
+
+10. Run "python3 manage.py createsuperuser" to create a super/admin user
+
+11. Run "python3 manage.py loaddata categories.json" on the categories file in products/fixtures to create the categories
+
+12. Run "python3 manage.py loaddata products.json" on the products file in products/fixtures to create the products
+
+13. Install gunicorn and add it to the requirements.txt file using the command pip3 freeze > requirements.txt
+
+14. Disable collectstatic in Heroku before any code is pushed using the command heroku config:set DISABLE_COLLECTSTATIC=1 -a ci-pp4-the-diplomat
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-19.PNG">
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-10.PNG">
+</details>
+
+15. Ensure the following environment variables are set in Heroku
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-11.PNG">
+</details>
+
+16. Connect the app to GitHub, and enable automatic deploys from main if you wish
+<details>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-13.PNG">
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-14.PNG">
+</details>
+
+17. Click deploy to deploy your application to Heroku for the first time
+
+18. Click on the link provided to access the application
+
+19. If you encounter any issues accessing the build logs is a good way to troubleshoot the issue
+<hr>
+
+### Fork Repository
+
+To fork the repository by following these steps:
+
+1. Go to the GitHub repository
+2. Click on Fork button in upper right hand corner
+<hr>
+
+### Clone Repository
+
+You can clone the repository by following these steps:
+
+1. Go to the GitHub repository
+2. Locate the Code button above the list of files and click it
+3. Select if you prefere to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard
+4. Open Git Bash
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+   7.Press Enter to create your local clone.
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Credits
+
+### Images
+
+Images used were sourced from Pexels.com and an AI image generator (Dalle2) was used for an image with the permission from OpenAI
+
+### Code
+
+Bootstrap dark navigation theme was used alongside boostrap classes and carousel
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Acknowledgements
+
+### Special thanks to the following:
+
+- Code Institute
+- My Mentor Mo Shami
