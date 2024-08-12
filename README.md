@@ -762,4 +762,355 @@ WAVE was used to test the websites accessibility.
 
 ##### Back to [top](#table-of-contents)<hr>
 
-###################
+## Testing
+
+1. Manual testing
+2. Automated testing
+
+### Manual testing
+
+1. As a site user I can easily navigate through the site
+2. As a site user I can easily navigate through the site and see informations
+
+| **Step**                                                 | **Expected Result**           | **Actual Result** |
+| -------------------------------------------------------- | ----------------------------- | ----------------- |
+| Click on the 'Home' link in the navigation bar           | Homepage will load            | Works as expected |
+| Click on the 'Register' link in the navigation bar       | Sign up page will load        | Works as expected |
+| Click on the 'Login' link in the navigation bar          | Login page will load          | Works as expected |
+| Click on the 'Service' link in the navigation bar        | Service page will load        | Works as expected |
+| Click on the 'Contact us' link in the navigation bar     | Contact Page will load        | Works as expected |
+| Click on the 'Booking' link in the navigation bar        | Book a service page will load | Works as expected |
+| Click on the 'My Bookings' link in the navigation bar    | My Booking page will load     | Works as expected |
+| Click on the 'Blog' link in the navigation bar           | Blog list page will load      | Works as expected |
+| Click on the 'Seeheimat' logo link in the navigation bar | Homepage will load            | Works as expected |
+| Click on the 'Logout' link in the navigation bar         | Logout page will load         | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-home.png">
+<img src="docs/testing/manual-testing/user-story-1-register.png">
+<img src="docs/testing/manual-testing/user-story-1-login.png">
+<img src="docs/testing/manual-testing/user-story-1-services.png">
+<img src="docs/testing/manual-testing/user-story-1-contact.png">
+<img src="docs/testing/manual-testing/user-story-1-booking.png">
+<img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
+<img src="docs/testing/manual-testing/user-story-1-blog.png">
+<img src="docs/testing/manual-testing/user-story-1-logout.png">
+
+</details>
+
+3. As a site user I want to see the team members of the company
+
+| **Step**                                    | **Expected Result**     | **Actual Result** |
+| ------------------------------------------- | ----------------------- | ----------------- |
+| Scroll down on the homepage to see the team | Members section appears | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-2-team.png">
+
+</details>
+
+4. As a site user I want to easily contact the site owner
+
+| **Step**                                             | **Expected Result** | **Actual Result** |
+| ---------------------------------------------------- | ------------------- | ----------------- |
+| Click on the 'Contact Us' link in the navigation bar | Find contact form   | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-4-contact.png">
+
+</details>
+
+5. As a site user I want to see the opening hours and the location of the company
+
+| **Step**                    | **Expected Result**                                        | **Actual Result** |
+| --------------------------- | ---------------------------------------------------------- | ----------------- |
+| Scroll down on the homepage | Find the opening hours and the location (Google maps Link) | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-5-location.png">
+
+</details>
+
+6. As a site user I want to easily book an appointment
+
+| **Step**                      | **Expected Result**                     | **Actual Result** |
+| ----------------------------- | --------------------------------------- | ----------------- |
+| Click on "Booking" in nav bar | Enter your data and book an appointment | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-booking.png">
+
+</details>
+
+7. As a site user I want to read my bookings
+
+| **Step**                          | **Expected Result**                                  | **Actual Result** |
+| --------------------------------- | ---------------------------------------------------- | ----------------- |
+| Click on "My Bookings" in nav bar | See your already booked appointments with pagination | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
+
+</details>
+
+8. As a site user I want to update my booking
+
+| **Step**                             | **Expected Result**              | **Actual Result** |
+| ------------------------------------ | -------------------------------- | ----------------- |
+| Click on "Edit" at your booking card | You can update now all your data | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
+<img src="docs/testing/manual-testing/user-story-8-edit-booking.png">
+
+</details>
+
+9. As a site user I want to be able to delete my booking
+
+| **Step**                               | **Expected Result**                    | **Actual Result** |
+| -------------------------------------- | -------------------------------------- | ----------------- |
+| Click on "Delete" at your booking card | Delete your booking in the delete view | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
+<img src="docs/testing/manual-testing/user-story-9-delete-booking.png">
+
+</details>
+
+#####################
+
+10. As a site user I want to get notified if an Action took place - so the site needs to write a message when operation with CRUD operations
+
+| **Step**                                                             | **Expected Result**                | **Actual Result** |
+| -------------------------------------------------------------------- | ---------------------------------- | ----------------- |
+| Performing any CRUD (except Read) operation (Create, Update, Delete) | a message will be sent to the view | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-10-create.png">
+<img src="docs/testing/manual-testing/user-story-10-delete.pngG">
+<img src="docs/testing/manual-testing/user-story-10-update.png">
+
+</details>
+
+11. As a site user I expect that the site works on all common devices
+
+| **Step**                                        | **Expected Result**   | **Actual Result** |
+| ----------------------------------------------- | --------------------- | ----------------- |
+| open the app on desktop, smartphones or tablets | the app is responsive | Works as expected |
+
+<details><summary></summary>
+<img src="docs/am-i-responsive.png">
+
+</details>
+
+12. As a site user i want to see what services I can book
+
+| **Step**                        | **Expected Result**           | **Actual Result** |
+| ------------------------------- | ----------------------------- | ----------------- |
+| Click on services in the navbar | See what services are offered | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-services.png">
+
+</details>
+
+13. As a User I can not book a table already booked so that my booking is valid and not double booked
+
+| **Step**                                  | **Expected Result**        | **Actual Result** |
+| ----------------------------------------- | -------------------------- | ----------------- |
+| Create a booking twice - at the same time | The booking cannot be made | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-13-double-booking.png">
+
+</details>
+
+14. As a site user I want to book valid appointments - no dates in the past
+
+| **Step**                               | **Expected Result**                                        | **Actual Result** |
+| -------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| Make a booking and select the calendar | The calendar is not able to accept past dates for bookings | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-14-past-date.png">
+
+</details>
+
+15. As a site user i want to login to CRUD my bookings
+
+| **Step**                                        | **Expected Result**                            | **Actual Result** |
+| ----------------------------------------------- | ---------------------------------------------- | ----------------- |
+| Click on the 'Login' link in the navigation bar | after you logged in you can CRUD your bookings | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
+<img src="docs/testing/manual-testing/user-story-10-create.png">
+<img src="docs/testing/manual-testing/user-story-10-delete.png">
+<img src="docs/testing/manual-testing/user-story-10-update.png">
+
+</details>
+
+16. As a site user I need to sign up to book an appointment
+
+| **Step**                           | **Expected Result**                                         | **Actual Result** |
+| ---------------------------------- | ----------------------------------------------------------- | ----------------- |
+| click on bookings while logged out | you will see that login is required and you need to sign up | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-login.png">
+<img src="docs/testing/manual-testing/user-story-1-booking.png">
+<img src="docs/testing/manual-testing/user-story-16-login-required.png">
+
+</details>
+
+17. As a site user I expect that just myself and the admin can see my bookings
+
+| **Step**                                              | **Expected Result**                                                | **Actual Result** |
+| ----------------------------------------------------- | ------------------------------------------------------------------ | ----------------- |
+| Click on the 'My Bookings' link in the navigation bar | You will see just your bookings that you created with your account | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
+
+</details>
+
+18. As a site admin i can make a booking for my customers
+
+| **Step**                             | **Expected Result**                  | **Actual Result** |
+| ------------------------------------ | ------------------------------------ | ----------------- |
+| in the admin panel - select bookings | You can add a booking if you need to | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-18-create-booking.png">
+
+</details>
+
+19. As a site admin I need to read all bookings and appointments
+
+| **Step**                             | **Expected Result**                        | **Actual Result** |
+| ------------------------------------ | ------------------------------------------ | ----------------- |
+| In the admin panel - select bookings | You will see overview of all bookings made | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-19-admin-bookings-read.png">
+
+</details>
+
+20. As a site admin I need to be able to update all bookings
+
+| **Step**                                                                         | **Expected Result**                     | **Actual Result** |
+| -------------------------------------------------------------------------------- | --------------------------------------- | ----------------- |
+| In the admin panel - select bookings and click on the booking you want to update | you can change all data on this booking | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-20-admin-update-booking.png">
+
+</details>
+
+21. As a site admin I need to be able to delete all bookings
+
+| **Step**                                                                 | **Expected Result**         | **Actual Result** |
+| ------------------------------------------------------------------------ | --------------------------- | ----------------- |
+| In the admin panel - select bookings and check the booking and delete it | you can delete this booking | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-21-admin-delete-booking.png">
+
+</details>
+
+22. As an site admin I need to be able to to manage all bookable services
+
+| **Step**                             | **Expected Result**                   | **Actual Result** |
+| ------------------------------------ | ------------------------------------- | ----------------- |
+| In the admin panel - select services | Here you can manage all your services | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-22-admin-services.png">
+
+</details>
+
+23. As a site owner I want to ship new informations and news into my blog so my current customers can get additional informations
+
+| **Step**                                                                 | **Expected Result**                 | **Actual Result** |
+| ------------------------------------------------------------------------ | ----------------------------------- | ----------------- |
+| In the blog - the owner can create new content regarding to the business | a full working blog app is provided | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-1-blog.png">
+<img src="docs/testing/manual-testing/user-story-23-post-details.png">
+
+</details>
+
+24. As a site owner I want that nobody can book the same appointment at a time
+
+| **Step**                              | **Expected Result**        | **Actual Result** |
+| ------------------------------------- | -------------------------- | ----------------- |
+| Try to book services at the same time | Error message is displayed | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-13-double-booking.png">
+
+</details>
+
+25. As a site owner I need to accept or reject bookings to handle time
+
+| **Step**                                                                                   | **Expected Result**                         | **Actual Result** |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------- | ----------------- |
+| in the admin panel - select bookings and update the bookings you want to reject or confirm | Reject or Confirmation is shown to the user | Works as expected |
+
+<details><summary></summary>
+<img src="docs/testing/manual-testing/user-story-25-admin-reject-booking.png">
+
+</details>
+
+### Automated testing
+
+- Testing was done using the built in Django module. All tests ran at the same time and all passed.
+
+<details><summary>Seeheimat - Booking - test_models.py, test_urls.py, test_views.py</summary>
+<img src="docs/testing/automated-testing/tests.png">
+</details>
+
+### Device Testing & Browser compatibility
+
+I used different browsers with my Macbook Pro and also tested it on my Oneplus 8. The app was also tested using th built in developer tools for different devices in Firefox.
+
+<details><summary>Google Chrome - Browser</summary>
+<img src="docs/compatibility/chrome.png">
+</details>
+
+<details><summary>Firefox - Browser</summary>
+<img src="docs/compatibility/firefox.png">
+</details>
+
+<details><summary>Galaxy S 20 - Emulator</summary>
+<img src="docs/compatibility/galaxy-s20.png">
+</details>
+
+<details><summary>Ipad - Emulator</summary>
+<img src="docs/compatibility/ipad.png">
+</details>
+
+<details><summary>IPhone SE - Emulator</summary>
+<img src="docs/compatibility/iphone-se.png">
+</details>
+
+<details><summary>Safari Browser</summary>
+<img src="docs/compatibility/safari.png">
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Bugs
+
+| **Bug**                                                                          | **Fix**                                                                                                                                                             |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| css not loading                                                                  | I created the css file in the generated staticfiles folder and not in the static folder - after that I jsut needed to generate the new staticfiles and it was fixed |
+| Double bookings - the user was able to book a different service at the same time | Adjusted the meta (unique together) in the booking model to prevent this situation                                                                                  |
+| 500 internal server error while changing the booking models                      | I needed to truncate the whole database via the terminal in order to be able to migrate the new models                                                              |
+| server error - base.html was not loaded properly                                 | I needed to be sure to put base.html in every file to the top                                                                                                       |
+| static files couldn't be accessed                                                | I needed to implement whitenoise to the settings.py                                                                                                                 |
+
+##### Back to [top](#table-of-contents)<hr>
+
+#############################

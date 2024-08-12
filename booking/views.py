@@ -44,6 +44,9 @@ class BookService(View):
             booking = form.save(commit=False)
             booking.user = request.user
             booking.save()
+            messages.success(
+                request, 'You successfully booked an appointment, it will be confirmed soon.'
+                )
             return redirect('confirmed')
         context = {'booking_form': form}
         if request.user.is_authenticated:
