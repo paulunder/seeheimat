@@ -117,8 +117,6 @@ Seeheimat | alps ~ wellness is a business concept that offers wellness wellness 
 - GitHub Kanban was used to track all open user stories
 - Milestones were used to track the progress of the project
 
-####################
-
 <details><summary>Milestones</summary>
 
 ![All Milestones](docs/milestones/milestones_all.PNG)
@@ -142,8 +140,6 @@ Seeheimat | alps ~ wellness is a business concept that offers wellness wellness 
 ### Colors
 
 I chose more light colors with low contrast to give the user a relaxing feeling when visiting the site. The colors are also used to give the user a feeling of being in the alps.
-
-########################
 
 ### Structure
 
@@ -877,8 +873,6 @@ WAVE was used to test the websites accessibility.
 
 </details>
 
-#####################
-
 10. As a site user I want to get notified if an Action took place - so the site needs to write a message when operation with CRUD operations
 
 | **Step**                                                             | **Expected Result**                | **Actual Result** |
@@ -1113,4 +1107,106 @@ I used different browsers with my Macbook Pro and also tested it on my Oneplus 8
 
 ##### Back to [top](#table-of-contents)<hr>
 
-#############################
+### Heroku Deployment
+
+[Official Page](https://devcenter.heroku.com/articles/git) (Ctrl + click)
+
+This application has been deployed from Github using Heroku. Here's how:
+
+1. Create an account at heroku.com
+
+2. Create an app and select a region
+<details>
+<img src="docs/deployment/new-app.png">
+<img src="docs/deployment/name-and-region.png">
+</details>
+
+3. Connect your github account and select the repository you want to deploy
+<details>
+<img src="docs/deployment/github.png">
+</details>
+
+4. Enable automatic deploys to deploy the app every time you push to the main branch
+<details>
+<img src="docs/deployment/automatic-deploys.png">
+</details>
+
+5. Run pip3 freeze > requirements.txt in order to add the requirements.txt file
+<details>
+<img src="docs/deployment/requirements.png">
+</details>
+
+6. Create the Procfile for heroku
+<details>
+<img src="docs/deployment/procfile.png">
+</details>
+
+7. Add the heroku domain to the ALLOWED_HOSTS variable in settings.py
+<details>
+<img src="docs/deployment/allowed-hosts.png">
+</details>
+
+8. Ensure debug is set to false in the settings.py file
+<details>
+<img src="docs/deployment/allowed-hosts.png">
+</details>
+
+9. Add the python buildpack in heroku settings
+<details>
+<img src="docs/deployment/buildpack.png">
+</details>
+
+10. Integrate the environment variables from the .env file into the heroku app settings
+<details>
+<img src="docs/deployment/config-vars.png">
+<img src="docs/deployment/config-vars-reveal.png">
+</details>
+
+11. add the runtime.txt file to the root of the project with the python version
+<details>
+<img src="docs/deployment/runtime.png">
+</details>
+
+12. Deploy your project to heroku by pushing to the main branch
+
+<hr>
+
+### Fork Repository
+
+To fork the repository by following these steps:
+
+1. Go to the GitHub repository
+2. Click on Fork button in upper right hand corner
+<hr>
+
+### Clone Repository
+
+You can clone the repository by following these steps:
+
+1. Go to the GitHub repository
+2. Locate the Code button above the list of files and click it
+3. Select if you prefere to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard
+4. Open Git Bash
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+   7.Press Enter to create your local clone.
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Credits
+
+### Images
+
+Images are made by myself or by midjourney.
+
+### Code
+
+Bootstrap dark navigation theme was used alongside boostrap classes and carousel
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Acknowledgements
+
+### Special thanks to the following:
+
+- My Mentor Mo Shami
