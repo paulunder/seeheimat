@@ -323,6 +323,7 @@ The wireframes were created using Balsamiq
   - [CI Python Linter](https://pep8ci.herokuapp.com/)
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
   - [Wave Validator](https://wave.webaim.org/)
+  - [Coverage](https://coverage.readthedocs.io/en/7.6.1/)
 
 ##### Back to [top](#table-of-contents)
 
@@ -1094,6 +1095,12 @@ WAVE was used to test the websites accessibility.
 <details><summary>Seeheimat - Booking - test_models.py, test_urls.py, test_views.py</summary>
 <img src="docs/testing/automated-testing/tests.png">
 </details>
+
+#### Test Coverage
+
+- Coverage was used to see how much of the code was tested. The used plugin for this was coverage.py
+
+[View the Coverage Report](docs/htmlcov/index.html)
 
 ### Device Testing & Browser compatibility
 
