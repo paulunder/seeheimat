@@ -811,7 +811,7 @@ WAVE was used to test the websites accessibility.
 | Click on the 'Seeheimat' logo link in the navigation bar | Homepage will load            | Works as expected |
 | Click on the 'Logout' link in the navigation bar         | Logout page will load         | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-home.png">
 <img src="docs/testing/manual-testing/user-story-1-register.png">
 <img src="docs/testing/manual-testing/user-story-1-login.png">
@@ -841,7 +841,7 @@ WAVE was used to test the websites accessibility.
 | ---------------------------------------------------- | ------------------- | ----------------- |
 | Click on the 'Contact Us' link in the navigation bar | Find contact form   | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-4-contact.png">
 
 </details>
@@ -852,7 +852,7 @@ WAVE was used to test the websites accessibility.
 | --------------------------- | ---------------------------------------------------------- | ----------------- |
 | Scroll down on the homepage | Find the opening hours and the location (Google maps Link) | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-5-location.png">
 
 </details>
@@ -863,7 +863,7 @@ WAVE was used to test the websites accessibility.
 | ----------------------------- | --------------------------------------- | ----------------- |
 | Click on "Booking" in nav bar | Enter your data and book an appointment | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-booking.png">
 
 </details>
@@ -874,7 +874,7 @@ WAVE was used to test the websites accessibility.
 | --------------------------------- | ---------------------------------------------------- | ----------------- |
 | Click on "My Bookings" in nav bar | See your already booked appointments with pagination | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
 
 </details>
@@ -885,7 +885,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------------ | -------------------------------- | ----------------- |
 | Click on "Edit" at your booking card | You can update now all your data | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
 <img src="docs/testing/manual-testing/user-story-8-edit-booking.png">
 
@@ -897,7 +897,7 @@ WAVE was used to test the websites accessibility.
 | -------------------------------------- | -------------------------------------- | ----------------- |
 | Click on "Delete" at your booking card | Delete your booking in the delete view | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
 <img src="docs/testing/manual-testing/user-story-9-delete-booking.png">
 
@@ -909,7 +909,7 @@ WAVE was used to test the websites accessibility.
 | -------------------------------------------------------------------- | ---------------------------------- | ----------------- |
 | Performing any CRUD (except Read) operation (Create, Update, Delete) | a message will be sent to the view | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-10-create.png">
 <img src="docs/testing/manual-testing/user-story-10-delete.pngG">
 <img src="docs/testing/manual-testing/user-story-10-update.png">
@@ -922,7 +922,7 @@ WAVE was used to test the websites accessibility.
 | ----------------------------------------------- | --------------------- | ----------------- |
 | open the app on desktop, smartphones or tablets | the app is responsive | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/am-i-responsive.png">
 
 </details>
@@ -933,7 +933,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------- | ----------------------------- | ----------------- |
 | Click on services in the navbar | See what services are offered | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-services.png">
 
 </details>
@@ -944,7 +944,7 @@ WAVE was used to test the websites accessibility.
 | ----------------------------------------- | -------------------------- | ----------------- |
 | Create a booking twice - at the same time | The booking cannot be made | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-13-double-booking.png">
 
 </details>
@@ -955,7 +955,7 @@ WAVE was used to test the websites accessibility.
 | -------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Make a booking and select the calendar | The calendar is not able to accept past dates for bookings | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-14-past-date.png">
 
 </details>
@@ -966,7 +966,7 @@ WAVE was used to test the websites accessibility.
 | ----------------------------------------------- | ---------------------------------------------- | ----------------- |
 | Click on the 'Login' link in the navigation bar | after you logged in you can CRUD your bookings | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
 <img src="docs/testing/manual-testing/user-story-10-create.png">
 <img src="docs/testing/manual-testing/user-story-10-delete.png">
@@ -980,7 +980,7 @@ WAVE was used to test the websites accessibility.
 | ---------------------------------- | ----------------------------------------------------------- | ----------------- |
 | click on bookings while logged out | you will see that login is required and you need to sign up | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-login.png">
 <img src="docs/testing/manual-testing/user-story-1-booking.png">
 <img src="docs/testing/manual-testing/user-story-16-login-required.png">
@@ -993,7 +993,7 @@ WAVE was used to test the websites accessibility.
 | ----------------------------------------------------- | ------------------------------------------------------------------ | ----------------- |
 | Click on the 'My Bookings' link in the navigation bar | You will see just your bookings that you created with your account | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-my-bookings.png">
 
 </details>
@@ -1004,7 +1004,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------------ | ------------------------------------ | ----------------- |
 | in the admin panel - select bookings | You can add a booking if you need to | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-18-create-booking.png">
 
 </details>
@@ -1015,7 +1015,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------------ | ------------------------------------------ | ----------------- |
 | In the admin panel - select bookings | You will see overview of all bookings made | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-19-admin-bookings-read.png">
 
 </details>
@@ -1026,7 +1026,7 @@ WAVE was used to test the websites accessibility.
 | -------------------------------------------------------------------------------- | --------------------------------------- | ----------------- |
 | In the admin panel - select bookings and click on the booking you want to update | you can change all data on this booking | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-20-admin-update-booking.png">
 
 </details>
@@ -1037,7 +1037,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------------------------------------------------ | --------------------------- | ----------------- |
 | In the admin panel - select bookings and check the booking and delete it | you can delete this booking | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-21-admin-delete-booking.png">
 
 </details>
@@ -1048,7 +1048,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------------ | ------------------------------------- | ----------------- |
 | In the admin panel - select services | Here you can manage all your services | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-22-admin-services.png">
 
 </details>
@@ -1059,7 +1059,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------------------------------------------------ | ----------------------------------- | ----------------- |
 | In the blog - the owner can create new content regarding to the business | a full working blog app is provided | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-1-blog.png">
 <img src="docs/testing/manual-testing/user-story-23-post-details.png">
 
@@ -1071,7 +1071,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------------- | -------------------------- | ----------------- |
 | Try to book services at the same time | Error message is displayed | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-13-double-booking.png">
 
 </details>
@@ -1082,7 +1082,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------------------------------------------------------------------ | ------------------------------------------- | ----------------- |
 | in the admin panel - select bookings and update the bookings you want to reject or confirm | Reject or Confirmation is shown to the user | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-25-admin-reject-booking.png">
 
 </details>
