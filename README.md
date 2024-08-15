@@ -1,7 +1,6 @@
 # Seeheimat | alps ~ wellness
 
-![Am I Responsive](docs/am-i-responsive.PNG)
-TODO: make responsive image here
+![Am I Responsive](docs/am-i-responsive.png)
 
 **Developer: Paul Pfister**
 
@@ -118,17 +117,17 @@ Seeheimat | alps ~ wellness is a business concept that offers wellness wellness 
 
 <details><summary>Milestones</summary>
 
-![All Milestones](docs/milestones/milestones_all.PNG)
+![All Milestones](docs/milestones/milestones_all.png)
 ![Milestone 1](docs/milestones/milestone_1.png)
-![Milestone 2](docs/milestones/milestone_2.PNG)
-![Milestone 3](docs/milestones/milestone_3.PNG)
-![Milestone 4](docs/milestones/milestone_4.PNG)
+![Milestone 2](docs/milestones/milestone_2.png)
+![Milestone 3](docs/milestones/milestone_3.png)
+![Milestone 4](docs/milestones/milestone_4.png)
 
 </details>
 
 <details><summary>User Stories</summary>
 
-![User stories](docs/user-stories/user-stories.PNG)
+![User stories](docs/user-stories/user-stories.png)
 
 </details>
 
