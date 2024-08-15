@@ -122,6 +122,7 @@ Seeheimat | alps ~ wellness is a business concept that offers wellness wellness 
 ![Milestone 2](docs/milestones/milestone_2.png)
 ![Milestone 3](docs/milestones/milestone_3.png)
 ![Milestone 4](docs/milestones/milestone_4.png)
+![Kanban](docs/milestones/kanban.png)w
 
 </details>
 
@@ -331,6 +332,8 @@ The wireframes were created using Balsamiq
 
 - Home page includes nav bar, main body and a footer
 
+User Stories covered: 1, 2
+
 <details><summary>See feature images</summary>
 
 ![Home page](docs/features/home-screen.png)
@@ -345,6 +348,8 @@ The wireframes were created using Balsamiq
 - Indicates login/logout in status
 - displayed on all pages
 
+User Stories covered: 1, 2
+
 <details><summary>See feature images</summary>
 
 ![Footer](docs/features/nav-bar-desktop.png)
@@ -357,6 +362,8 @@ The wireframes were created using Balsamiq
 - Contains social media links and copyright
 - displayed across all pages
 
+User Stories covered: 1, 2
+
 <details><summary>See feature images</summary>
 
 ![Footer](docs/features/footer.png)
@@ -368,6 +375,8 @@ The wireframes were created using Balsamiq
 - Allow users to register an acoount
 - Username and password is required, email is optional
 
+User Stories covered: 16
+
 <details><summary>See feature images</summary>
 
 ![Sign Up](docs/features/sign-up.png)
@@ -377,6 +386,8 @@ The wireframes were created using Balsamiq
 ### Login
 
 - User can login to create a booking, view bookings, edit and delete bookings
+
+User Stories covered: 15
 
 <details><summary>See feature images</summary>
 
@@ -389,6 +400,8 @@ The wireframes were created using Balsamiq
 - Allows the user to securely log out
 - Ask user if they are sure they want to log out
 
+User Stories covered: 15
+
 <details><summary>See feature images</summary>
 
 ![Sign Out](docs/features/sign-out.png)
@@ -399,6 +412,8 @@ The wireframes were created using Balsamiq
 
 - Allows the user to book a service using the booking form
 - Messages are displayed if the data is not valid such as phone number lenght is too short and the email address is not a valid format
+
+User Stories covered: 6
 
 <details><summary>See feature images</summary>
 
@@ -411,6 +426,8 @@ The wireframes were created using Balsamiq
 - Allows the user to see all their bookings in a paginated layout
 - Status of the booking is displayed, awaiting confirmation and when approved will then change to confirmed status for the user
 
+User Stories covered: 7
+
 <details><summary>See feature images</summary>
 
 ![My Bookings](docs/features/my-bookings.png)
@@ -420,6 +437,9 @@ The wireframes were created using Balsamiq
 ### Edit Booking
 
 - Allows the user to edit their entire booking and update the booking
+
+User Stories covered: 8
+
 <details><summary>See feature images</summary>
 
 ![Edit Booking](docs/features/edit-booking.png)
@@ -429,6 +449,8 @@ The wireframes were created using Balsamiq
 ### Cancel Booking
 
 - Allows the user to cancel their booking, asks user are they sure
+
+User Stories covered: 9
 
 <details><summary>See feature images</summary>
 
@@ -442,6 +464,8 @@ The wireframes were created using Balsamiq
 - Items can be added via the admin panel in the backend
 - A service which is shown here - is always bookable
 
+User Stories covered: 12
+
 <details><summary>See feature images</summary>
 
 ![Services Page](docs/features/services.png)
@@ -453,6 +477,8 @@ The wireframes were created using Balsamiq
 - The blog displays posts made in the admin panel
 - Paginations is used to display 4 posts per page
 
+User Stories covered: 23
+
 <details><summary>See feature images</summary>
 
 ![Blog](docs/features/blog-list.png)
@@ -463,6 +489,8 @@ The wireframes were created using Balsamiq
 
 - The post details page displays the full post
 - The author, date and content is displayed
+
+User Stories covered: 23
 
 <details><summary>See feature images</summary>
 
@@ -476,6 +504,8 @@ The wireframes were created using Balsamiq
 - Comments can be approved or rejected by the admin
 - Only registered users can comment
 
+User Stories covered: 23
+
 <details><summary>See feature images</summary>
 
 ![Comments](docs/features/comments.png)
@@ -487,6 +517,8 @@ The wireframes were created using Balsamiq
 - Registered users can contact the business
 - Name, email, subject and message is required
 - The message is displayed in the admin panel
+
+User Stories covered: 4
 
 <details><summary>See feature images</summary>
 
@@ -798,7 +830,7 @@ WAVE was used to test the websites accessibility.
 | ------------------------------------------- | ----------------------- | ----------------- |
 | Scroll down on the homepage to see the team | Members section appears | Works as expected |
 
-<details><summary></summary>
+<details><summary>Evidence</summary>
 <img src="docs/testing/manual-testing/user-story-2-team.png">
 
 </details>
