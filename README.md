@@ -1100,7 +1100,9 @@ WAVE was used to test the websites accessibility.
 
 - Coverage was used to see how much of the code was tested. The used plugin for this was coverage.py
 
-[View the Coverage Report](docs/htmlcov/index.html)
+<details><summary>Coverage.py report</summary>
+<img src="docs/testing/automated-testing/coverage-report.png">
+</details>
 
 ### Device Testing & Browser compatibility
 
