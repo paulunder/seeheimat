@@ -122,7 +122,7 @@ Seeheimat | alps ~ wellness is a business concept that offers wellness wellness 
 ![Milestone 2](docs/milestones/milestone_2.png)
 ![Milestone 3](docs/milestones/milestone_3.png)
 ![Milestone 4](docs/milestones/milestone_4.png)
-![Kanban](docs/milestones/kanban.png)w
+![Kanban](docs/milestones/kanban.png)
 
 </details>
 
