@@ -1238,10 +1238,6 @@ You can clone the repository by following these steps:
 
 Images are made by myself or by midjourney.
 
-### Code
-
-Bootstrap dark navigation theme was used alongside boostrap classes and carousel
-
 ##### Back to [top](#table-of-contents)<hr>
 
 ## Acknowledgements
