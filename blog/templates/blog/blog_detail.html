@@ -10,7 +10,13 @@
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/default.webp' %}" class="scale" alt="placeholder">
+              {% if "placeholder" in post.featured_image.url %}
+              <img class="card-img-top" src="{% static 'images/default.webp' %}"
+                alt="placeholder image">
+              {% else %}
+              <img class="card-img-top" src=" {{ post.featured_image.url }}"
+                alt="{{ post.title }}">
+              {% endif %}
             </div>
         </div>
     </div>
@@ -79,7 +85,7 @@
             {{ comment_form | crispy }}
             {% csrf_token %}
             <button id="submitButton" type="submit"
-              class="btn btn-signup btn-lg">Submit</button>
+              class="btn btn-primary btn-lg">Submit</button>
           </form>
           {% else %}
           <p>Log in to leave a comment</p>
