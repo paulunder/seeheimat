@@ -1,7 +1,7 @@
 from django.urls import path
 from booking import views
 
-# Urls for all the pages in the bookings app
+# Urls for the booking app
 urlpatterns = [
     path('confirmed', views.Confirmed.as_view(), name='confirmed'),
     path('booking_list', views.BookingList.as_view(), name='booking_list'),
