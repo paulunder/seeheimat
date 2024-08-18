@@ -477,6 +477,7 @@ User Stories covered: 12
 
 - The blog displays posts made in the admin panel
 - Paginations is used to display 4 posts per page
+- NOTE: The Blog was made with the code of "I think therefore I blog" - Project
 
 User Stories covered: 23
 

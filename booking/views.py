@@ -29,6 +29,9 @@ def get_user_instance(request):
 
 
 class BookService(View):
+    """
+    This view will display the booking form
+    """
     template_name = 'booking/book_service.html'
 
     def get(self, request, *args, **kwargs):
@@ -107,9 +110,6 @@ class BookingList(generic.ListView):
             return redirect('account_login')
 
 
-# Displays the edit booking page and form so the user can then
-# change any detail of the booking and update it
-
 class EditBooking(SuccessMessageMixin, UpdateView):
     """
     This view will display the booking by it's primary key
@@ -120,11 +120,9 @@ class EditBooking(SuccessMessageMixin, UpdateView):
     template_name = 'booking/book_edit.html'
     success_message = 'Booking has been updated.'
 
+
     def get_success_url(self, **kwargs):
         return reverse('booking_list')
-
-
-# Deletes the selected booking the user wishes to cancel
 
 def cancel_booking(request, pk):
     """
