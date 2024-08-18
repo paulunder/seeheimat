@@ -1,11 +1,7 @@
-# Imports
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# 3rd party:
 from datetime import timezone
 from django.db import models
 from django.contrib.auth.models import User
 from pages.models import Service
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Working hours of the massage service
 time_slots = (

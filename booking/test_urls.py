@@ -1,11 +1,6 @@
-# Imports
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# 3rd party:
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-# Internal:
 from booking import views
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 class TestBookingUrls(SimpleTestCase):
