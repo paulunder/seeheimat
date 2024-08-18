@@ -51,7 +51,7 @@ class BookingViewsTestCase(TestCase):
         """
         Test the book_service view with invalid data
         """
-        form_data = {'': '', 'field2': ''}  # Adjust with invalid data
+        form_data = {'': '', 'field2': ''}
         response = self.client.post(reverse('book_service'), form_data)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'booking/book_service.html')
@@ -70,7 +70,6 @@ class BookingViewsTestCase(TestCase):
         """
         self.client.login(username='testuser', password='testpass')
         response = self.client.get(reverse('booking_list'))
-        # Check for the 'My Bookings' heading
         self.assertContains(response, 'My Bookings')
 
     def test_booking_list_view_unauthenticated(self):

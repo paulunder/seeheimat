@@ -11,11 +11,9 @@ from .forms import BookingForm
 
 
 
-# This will get the user information if they are logged in
-
 def get_user_instance(request):
     """
-    retrieves user details if logged in
+    gets user details if logged in
     """
 
     user_email = request.user.email
@@ -52,11 +50,9 @@ class BookService(View):
         return render(request, self.template_name, context)
 
 
-# Displays the confirmation page upon a succesful booking
-
 class Confirmed(generic.DetailView):
     """
-    This view will display confirmation on a successful booking
+    This view will confirm the booking
     """
     template_name = 'booking/book_confirmation.html'
 
@@ -64,12 +60,9 @@ class Confirmed(generic.DetailView):
         return render(request, 'booking/book_confirmation.html')
 
 
-# Display all the bookings the user has active,
-
 class BookingList(generic.ListView):
     """
     This view will display all the bookings
-    a particular user has made
     """
     model = Booking
     queryset = Booking.objects.filter().order_by('-created_date')
@@ -107,8 +100,7 @@ class BookingList(generic.ListView):
 
 class EditBooking(SuccessMessageMixin, UpdateView):
     """
-    This view will display the booking by it's primary key
-    so the user can then edit it
+    This view will allow the user to edit their booking
     """
     model = Booking
     form_class = BookingForm
@@ -121,7 +113,7 @@ class EditBooking(SuccessMessageMixin, UpdateView):
 
 def cancel_booking(request, pk):
     """
-    Deletes the booking identified by it's primary key by the user
+    This view will allow the user to cancel their booking
     """
     booking = Booking.objects.get(pk=pk)
 
