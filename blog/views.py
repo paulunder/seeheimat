@@ -5,8 +5,9 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
 
+# NOTE: The Blog was made with the code of "I think therefore I blog" - Project
 
-# Create your views here.
+
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/blog_list.html"

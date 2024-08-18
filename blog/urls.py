@@ -1,6 +1,8 @@
 from . import views
 from django.urls import path
 
+# NOTE: The Blog was made with the code of "I think therefore I blog" - Project
+
 urlpatterns = [
     path("blog_list", views.PostList.as_view(), name='blog'),
     path('<slug:slug>/', views.post_detail, name='blog_detail'),
