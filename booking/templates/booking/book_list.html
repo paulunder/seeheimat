@@ -1,93 +1,91 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container mx-auto px-4 py-8">
+    {% if not user.is_authenticated %}
+    <div class="max-w-md mx-auto text-center bg-white shadow-lg rounded-lg p-6">
+        <p class="text-gray-600 mb-4">Please login to view your bookings</p>
+        <a href="{% url 'account_login' %}" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition">
+            Go to Login Page
+        </a>
+    </div>
+    {% else %}
+    <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">My Bookings</h1>
 
-<section>
-    <div class="container">
-        
-        
-            <!-- Display if user is not logged in -->
-            {% if not user.is_authenticated %}
-            <p>Please login</p>
-            <button class="btn btn-success" type="submit"><a href="{% url 'account_login' %}">Go to Login
-                    Page</a></button>
-            {% else %}
-            <h1>My Bookings:</h1><hr>
-            <br>
-            <div class="row justify-content-center mt-3">
-            {% for booking in booking_page %}
-            <div class="col-md-5 mb-4">
-                <div class="card h-100 shadow-sm booking-card">
-                    <div class="card-body bg-light">
-                        <h2 class="card-title h4 mb-3">{{ booking.name }}</h2>
-                        <ul class="list-unstyled mb-3">
-                            <li class="text-muted mb-2">
-                                <i class="far fa-calendar-alt me-2"></i>
-                                {{ booking.requested_date|date:"F d, Y" }}
-                            </li>
-                            <li class="text-muted mb-2">
-                                <i class="far fa-clock me-2"></i>
-                                {{ booking.requested_time }}
-                            </li>
-                            <li class="mb-2">
-                                <strong>Status:</strong>
-                                <span class="badge 
-                                    {% if booking.status == 'Awaiting confirmation' %}bg-warning text-dark
-                                    {% elif booking.status == 'Booking Confirmed' %}bg-success
-                                    {% elif booking.status == 'Booking Rejected' %}bg-danger
-                                    {% elif booking.status == 'Booking Expired' %}bg-secondary
-                                    {% else %}bg-info
-                                    {% endif %}">
-                                    {{ booking.status }}
-                                </span>
-                            </li>
-                            <li>
-                                <strong>Treatment:</strong> {{ booking.service }}
-                            </li>
-                        </ul>
-                        <div class="d-grid gap-2">
-                            {% if booking.status == 'booking expired' %}
-                                <button class="btn btn-danger" disabled>Expired</button>
-                            {% else %}
-                                <a href="{% url 'edit_booking' booking.pk %}" class="btn btn-primary">
-                                    <i class="fas fa-edit me-2"></i>Edit
-                                </a>
-                                <a href="{% url 'book_cancel' booking.pk %}" class="btn btn-danger">
-                                    <i class="fas fa-times me-2"></i>Cancel
-                                </a>
-                            {% endif %}
-                        </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for booking in booking_page %}
+        <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition hover:scale-105">
+            <div class="p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">{{ booking.name }}</h2>
+                <div class="space-y-3 text-gray-600">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <span>{{ booking.requested_date|date:"F d, Y" }}</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>{{ booking.requested_time }}</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="mr-2 font-medium">Status:</span>
+                        <span class="px-3 py-1 rounded-full text-sm 
+                            {% if booking.status == 'Awaiting confirmation' %}bg-yellow-100 text-yellow-800
+                            {% elif booking.status == 'Booking Confirmed' %}bg-green-100 text-green-800
+                            {% elif booking.status == 'Booking Rejected' %}bg-red-100 text-red-800
+                            {% elif booking.status == 'Booking Expired' %}bg-gray-100 text-gray-800
+                            {% else %}bg-blue-100 text-blue-800
+                            {% endif %}">
+                            {{ booking.status }}
+                        </span>
+                    </div>
+                    <div>
+                        <span class="font-medium">Treatment:</span> {{ booking.service }}
                     </div>
                 </div>
-            </div>
-            {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-    <!-- pagination -->
-    <div class="row d-flex my-5 justify-content-center text-center">
-        <div class="btn-group" role="group" aria-label="Pagination">
-            {% if booking_page.has_previous %}
-                <a href="?page=1" class="btn btn-outline-primary">&laquo; First</a>
-                <a href="?page={{ booking_page.previous_page_number }}" class="btn btn-outline-primary">Previous</a>
-            {% else %}
-                <button class="btn btn-outline-primary" disabled>&laquo; First</button>
-                <button class="btn btn-outline-primary" disabled>Previous</button>
-            {% endif %}
-    
-            <button class="btn btn-outline-primary" disabled>
-                Page {{ booking_page.number }} of {{ booking_page.paginator.num_pages }}
-            </button>
-    
-            {% if booking_page.has_next %}
-                <a href="?page={{ booking_page.next_page_number }}" class="btn btn-outline-primary">Next</a>
-                <a href="?page={{ booking_page.paginator.num_pages }}" class="btn btn-outline-primary">Last &raquo;</a>
-            {% else %}
-                <button class="btn btn-outline-primary" disabled>Next</button>
-                <button class="btn btn-outline-primary" disabled>Last &raquo;</button>
-            {% endif %}
-        </div>
-    </div>
-</section>
 
-{%endblock%}
+                <div class="mt-6 grid grid-cols-2 gap-4">
+                    {% if booking.status == 'booking expired' %}
+                        <button class="w-full bg-red-500 text-white py-2 rounded-md opacity-50 cursor-not-allowed" disabled>Expired</button>
+                    {% else %}
+                        <a href="{% url 'edit_booking' booking.pk %}" class="w-full bg-blue-500 text-white py-2 rounded-md text-center hover:bg-blue-600 transition">
+                            Edit
+                        </a>
+                        <a href="{% url 'book_cancel' booking.pk %}" class="w-full bg-red-500 text-white py-2 rounded-md text-center hover:bg-red-600 transition">
+                            Cancel
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Pagination -->
+    <div class="flex justify-center items-center mt-10 space-x-4">
+        {% if booking_page.has_previous %}
+            <a href="?page=1" class="px-4 py-2 border rounded-md hover:bg-gray-100">&laquo; First</a>
+            <a href="?page={{ booking_page.previous_page_number }}" class="px-4 py-2 border rounded-md hover:bg-gray-100">Previous</a>
+        {% else %}
+            <button class="px-4 py-2 border rounded-md text-gray-400 cursor-not-allowed" disabled>&laquo; First</button>
+            <button class="px-4 py-2 border rounded-md text-gray-400 cursor-not-allowed" disabled>Previous</button>
+        {% endif %}
+
+        <span class="text-gray-600">
+            Page {{ booking_page.number }} of {{ booking_page.paginator.num_pages }}
+        </span>
+
+        {% if booking_page.has_next %}
+            <a href="?page={{ booking_page.next_page_number }}" class="px-4 py-2 border rounded-md hover:bg-gray-100">Next</a>
+            <a href="?page={{ booking_page.paginator.num_pages }}" class="px-4 py-2 border rounded-md hover:bg-gray-100">Last &raquo;</a>
+        {% else %}
+            <button class="px-4 py-2 border rounded-md text-gray-400 cursor-not-allowed" disabled>Next</button>
+            <button class="px-4 py-2 border rounded-md text-gray-400 cursor-not-allowed" disabled>Last &raquo;</button>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

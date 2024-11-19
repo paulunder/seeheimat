@@ -29,7 +29,7 @@ status_options = (
 # The booking model for the database
 class Booking(models.Model):
     """
-    a class for the Booking model
+    the class for the booking model which is used to handle the bookings
     """
     booking_id = models.AutoField(primary_key=True)
     created_date = models.DateTimeField(auto_now_add=True)
