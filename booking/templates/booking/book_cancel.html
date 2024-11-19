@@ -15,8 +15,8 @@
                 </div>
             {% else %}
                 {% if user.is_authenticated and user == booking.user %}
+                <h2 class="mb-3">Are you sure?</h2>
                     <div class="bg-light p-4 rounded">
-                        <h2 class="mb-3">Are you sure?</h2>
                         
                         <div class="mb-4">
                             <h3 class="mb-2">{{ booking.name }}</h3>
@@ -25,7 +25,16 @@
                                 {{ booking.requested_date }} at {{ booking.requested_time }}
                             </p>
                             <p class="mb-1">
-                                <strong>Booking Status:</strong> {{ booking.status }}
+                                <strong>Booking Status:</strong> 
+                                <span class="badge 
+                                    {% if booking.status == 'Awaiting confirmation' %}bg-warning text-dark
+                                    {% elif booking.status == 'Booking Confirmed' %}bg-success
+                                    {% elif booking.status == 'Booking Rejected' %}bg-danger
+                                    {% elif booking.status == 'Booking Expired' %}bg-secondary
+                                    {% else %}bg-info
+                                    {% endif %}">
+                                    {{ booking.status }}
+                                </span>
                             </p>
                             <p>
                                 <strong>Treatment:</strong> {{ booking.service }}
@@ -36,10 +45,11 @@
                             {% csrf_token %}
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-danger btn-lg" type="submit">
-                                    <i class="fas fa-check me-2"></i>YES, Cancel Booking
+                                    <i class="fas fa-check me-2"></i> YES, Cancel Booking
                                 </button>
+                                <br>
                                 <a href="{% url 'booking_list' %}" class="btn btn-secondary btn-lg">
-                                    <i class="fas fa-arrow-left me-2"></i>Return to Bookings
+                                    <i class="fas fa-arrow-left me-2"></i> Return to Bookings
                                 </a>
                             </div>
                         </form>
