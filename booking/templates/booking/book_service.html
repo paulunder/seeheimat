@@ -13,12 +13,11 @@
                 {% endif %}
             </h1>
             <hr class="mb-4">
-
             {% if not user.is_authenticated %}
                 <div class="text-center">
                     <p class="lead text-muted mb-4">Please log in to book a service.</p>
                     <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">
-                        <i class="fas fa-sign-in-alt me-2"></i>Go to Login
+                        <i class="fas fa-sign-in-alt me-2"></i> Go to Login
                     </a>
                 </div>
             {% else %}
@@ -33,22 +32,6 @@
                         </button>
                     </div>
                 </form>
-
-                <!-- Form Errors -->
-                <!-- {% if booking_form.errors %}
-                    {% for field in booking_form %}
-                        {% for error in field.errors %}
-                            <div class="alert alert-danger mt-3" role="alert">
-                                <strong>{{ error|escape }}</strong>
-                            </div>
-                        {% endfor %}
-                    {% endfor %}
-                    {% for error in booking_form.non_field_errors %}
-                        <div class="alert alert-danger mt-3" role="alert">
-                            <strong>{{ error|escape }}</strong>
-                        </div>
-                    {% endfor %}
-                {% endif %} -->
             {% endif %}
         </div>
     </div>
